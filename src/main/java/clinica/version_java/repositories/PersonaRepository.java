@@ -1,5 +1,7 @@
 package clinica.version_java.repositories;
 
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -23,7 +25,7 @@ public interface PersonaRepository extends JpaRepository<Persona, Integer> {
 
     Page<Persona> findByDui(String dui, Pageable pageable);
 
-    Persona findByDui(String dui);
+    Optional<Persona> findByDui(String dui);
 
     boolean existsByDui(String dui);
 

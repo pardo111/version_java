@@ -110,5 +110,15 @@ public class Persona {
         this.telefonoPersona = persona.telefonoPersona;
         this.contacto = persona.contacto;
     }
+
+    public Persona(clinica.version_java.DTOs.DTOPersonaBase persona) {
+        this.nombres = persona.getNombres();
+        this.apellidos = persona.getApellidos();
+        this.fechaNacimiento = persona.getFechaNacimiento();
+        this.direccion = persona.getDireccion();
+        this.sexo = persona.getSexo();
+        this.dui = persona.getDui();
+        this.tipoPersona = persona.getTipoPersona();
+    }
     
 }
