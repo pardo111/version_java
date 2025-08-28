@@ -20,6 +20,16 @@ import clinica.version_java.repositories.PersonaRepository;
 import clinica.version_java.repositories.TelefonoPersonaRepository;
 import jakarta.transaction.Transactional;
 
+/**
+ * Servicio para la gestión de personas, incluyendo creación y actualización
+ * de datos básicos, teléfonos, correos, contactos de emergencia y antecedentes
+ * familiares.
+ * <p>
+ * Contiene métodos transaccionales y privados para mantener la integridad de
+ * los datos
+ * y asegurar la consistencia en la base de datos.
+ * </p>
+ */
 @Service
 public class PersonaService {
     PersonaRepository personaRepository;
@@ -28,6 +38,9 @@ public class PersonaService {
     CorreoPersonaRepository correoPersonaRepository;
     AntecedentesFamiliaresRepository antecedentesFamiliaresRepository;
 
+    /**
+     * Constructor para inyección de dependencias de repositorios.
+     */
     public PersonaService(PersonaRepository personaRepository,
             ContactoEmergenciaRepository contactoEmergenciaRepository,
             TelefonoPersonaRepository telefonoPersonaRepository, CorreoPersonaRepository correoPersonaRepository,
@@ -39,6 +52,20 @@ public class PersonaService {
         this.antecedentesFamiliaresRepository = antecedentesFamiliaresRepository;
     }
 
+    // -----------------------------------TRANSACCIONES-----------------------------------
+
+    /**
+     * Crea o actualiza una persona completa con sus datos relacionados.
+     * <p>
+     * Este método es transaccional, por lo que si ocurre un error en cualquiera
+     * de las operaciones, se revertirán todas las modificaciones en la base de
+     * datos.
+     * </p>
+     *
+     * @param persona DTO con toda la información de la persona a guardar
+     * @return DTO actualizado con el id generado de la persona
+     * @throws Exception si ocurre un error al guardar la información
+     */
     @Transactional(rollbackOn = Exception.class)
     public DTOPersona guardarPersonaCompleta(DTOPersona persona) throws Exception {
 
@@ -59,6 +86,18 @@ public class PersonaService {
 
     }
 
+    // -----------------------------------METODOS_PRIVADOS-----------------------------------
+    // -------------------------------HELPER_METHODS-----------------------------------
+
+    /**
+     * Guarda los teléfonos de una persona.
+     * <p>
+     * Evita duplicados verificando los teléfonos existentes en la entidad.
+     * No hace nada si la lista de teléfonos es nula o vacía.
+     *
+     * @param persona   La persona a la que se asociarán los teléfonos
+     * @param telefonos Lista de teléfonos a guardar
+     */
     private void guardarTelefonos(Persona persona, List<String> telefonos) {
         if (telefonos == null || telefonos.isEmpty())
             return;
@@ -74,6 +113,15 @@ public class PersonaService {
                         .toList());
     }
 
+    /**
+     * Guarda los correos de una persona.
+     * <p>
+     * Evita duplicados verificando los correos existentes en la entidad.
+     * No hace nada si la lista de correos es nula o vacía.
+     *
+     * @param persona La persona a la que se asociarán los teléfonos
+     * @param correos Lista de correos a guardar
+     */
     private void guardarCorreos(Persona persona, List<String> correos) {
         if (correos == null || correos.isEmpty())
             return;
@@ -88,6 +136,18 @@ public class PersonaService {
                         .toList());
     }
 
+    /**
+     * Guarda los contactos de emergencia de una persona.
+     * <p>
+     * Cada contacto se guarda como una persona separada si no existe previamente
+     * (según el DUI).
+     * También guarda sus teléfonos y correos.
+     *
+     * @param contactosEmergencia Lista de DTOs con la información de los contactos
+     * @param persona             Persona principal a la que se asocian los
+     *                            contactos
+     * @throws Exception Si ocurre algún error al guardar los contactos
+     */
     private void guardarInformacionPersonaRelacionada(List<DTOContactosEmergencia> contactosEmergencia, Persona persona)
             throws Exception {
         try {
@@ -114,6 +174,19 @@ public class PersonaService {
 
     }
 
+    /**
+     * Guarda los antecedentes familiares de una persona.
+     * <p>
+     * Cada contacto se guarda como una persona separada si no existe previamente
+     * (según el DUI).
+     * También guarda sus teléfonos y correos.
+     *
+     * @param antecedentesFamiliares Lista de DTOs con la información de los
+     *                               contactos
+     * @param persona                Persona principal a la que se asocian los
+     *                               contactos
+     * @throws Exception Si ocurre algún error al guardar los contactos
+     */
     private void guardarInformacionPersonaRelacionada(Persona persona,
             List<DTOAntecedentesFamiliares> antecedentesFamiliares)
             throws Exception {
