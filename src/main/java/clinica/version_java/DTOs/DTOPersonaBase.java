@@ -2,8 +2,11 @@ package clinica.version_java.DTOs;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Set;
 
 import clinica.version_java.models.enums.Estado;
+import clinica.version_java.models.Persona;
 import clinica.version_java.models.enums.Sexo;
 import clinica.version_java.models.enums.TipoPersona;
 import lombok.Data;
@@ -21,8 +24,8 @@ public class DTOPersonaBase {
     private Sexo sexo;
     private String dui;
     private TipoPersona tipoPersona;
-    private List<String> correos;
-    private List<String> telefonos;
+    private List<String> correos = new ArrayList<>();
+    private List<String> telefonos = new ArrayList<>();
 
     public DTOPersonaBase(DTOPersonaBase dto) {
         this.idPersona = dto.getIdPersona();
@@ -81,5 +84,41 @@ public class DTOPersonaBase {
         this.estado = dto.getEstado();
 
     }
+
+    public DTOPersonaBase(
+            int idPersona,
+            String nombres,
+            String apellidos,
+            LocalDate fechaNacimiento,
+                String direccion,
+            Sexo sexo,
+            String dui,
+            TipoPersona tipoPersona) {
+        this.idPersona = idPersona;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.fechaNacimiento = fechaNacimiento;
+        this.direccion = direccion;
+        this.sexo = sexo;
+        this.dui = dui;
+        this.tipoPersona = tipoPersona;
+    }
+public DTOPersonaBase(Persona p) {
+    this.idPersona = p.getIdPersona();
+    this.nombres = p.getNombres();
+    this.apellidos = p.getApellidos();
+    this.fechaNacimiento = p.getFechaNacimiento();
+    this.direccion = p.getDireccion();
+    this.sexo = p.getSexo();
+    this.dui = p.getDui();
+    this.tipoPersona = p.getTipoPersona();
+
+    if (p.getCorreoPersona() != null) {
+        p.getCorreoPersona().forEach(c -> this.correos.add(c.getCorreo()));
+    }
+    if (p.getTelefonoPersona() != null) {
+        p.getTelefonoPersona().forEach(t -> this.telefonos.add(t.getTelefono()));
+    }
+}
 
 }

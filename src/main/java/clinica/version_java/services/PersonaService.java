@@ -3,11 +3,14 @@ package clinica.version_java.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import clinica.version_java.DTOs.DTOAntecedentesFamiliares;
 import clinica.version_java.DTOs.DTOContactosEmergencia;
 import clinica.version_java.DTOs.DTOPersona;
+import clinica.version_java.DTOs.DTOPersonaBase;
 import clinica.version_java.models.AntecedentesFamiliares;
 import clinica.version_java.models.ContactoEmergencia;
 import clinica.version_java.models.CorreoPersona;
@@ -84,6 +87,20 @@ public class PersonaService {
             throw new Exception("Error al crear la persona completa", e);
         }
 
+    }
+
+
+
+    /*
+     * Metodo de lectura de Personas 
+     * 
+     * @param pageable para manejar los datos a devolver de la pagina
+     * @return retorna una pagina DTOPersonaBase
+    */
+    public Page<DTOPersonaBase> obtenerPersonas(Pageable pageable) {
+
+        Page<Persona> page =personaRepository.obtenerPagina(pageable);
+        return page.map(DTOPersonaBase::new);
     }
 
     // -----------------------------------METODOS_PRIVADOS-----------------------------------

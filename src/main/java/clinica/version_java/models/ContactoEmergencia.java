@@ -1,5 +1,7 @@
 package clinica.version_java.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import clinica.version_java.models.enums.Estado;
 import clinica.version_java.models.enums.Relacion;
 import jakarta.persistence.Column;
@@ -13,10 +15,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "contacto_emergencia")
 @Data
+@ToString(exclude = {"paciente", "contacto"})
+
+@NoArgsConstructor
 public class ContactoEmergencia {
     
     @Id
@@ -30,9 +37,11 @@ public class ContactoEmergencia {
 
     @ManyToOne
     @JoinColumn(name="id_paciente", referencedColumnName = "id_persona")
+    @JsonIgnore
     private Persona paciente;
     @ManyToOne
     @JoinColumn(name="id_contacto", referencedColumnName = "id_persona")
+    @JsonIgnore
     private Persona contacto;
 
     

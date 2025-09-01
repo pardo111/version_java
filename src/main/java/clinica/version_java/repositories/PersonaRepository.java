@@ -5,8 +5,10 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import clinica.version_java.DTOs.DTOPersonaBase;
 import clinica.version_java.models.Persona;
 import clinica.version_java.models.enums.Sexo;
 import clinica.version_java.models.enums.TipoPersona;
@@ -35,4 +37,10 @@ public interface PersonaRepository extends JpaRepository<Persona, Integer> {
 
     Page<Persona> findByTipoPersona(TipoPersona tipoPersona, Pageable pageable);
 
+    @Query("""
+            SELECT DISTINCT p FROM Persona p
+               LEFT JOIN FETCH p.correoPersona cp
+               LEFT JOIN FETCH p.telefonoPersona tp
+               """)
+    Page<Persona> obtenerPagina(Pageable pageable);
 }
