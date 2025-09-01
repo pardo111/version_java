@@ -22,7 +22,6 @@ import lombok.ToString;
 @Table(name = "contacto_emergencia")
 @Data
 @ToString(exclude = {"paciente", "contacto"})
-
 @NoArgsConstructor
 public class ContactoEmergencia {
     

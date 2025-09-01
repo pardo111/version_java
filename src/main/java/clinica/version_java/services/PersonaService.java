@@ -18,6 +18,7 @@ import clinica.version_java.models.Persona;
 import clinica.version_java.models.TelefonoPersona;
 import clinica.version_java.models.enums.Estado;
 import clinica.version_java.models.enums.Sexo;
+import clinica.version_java.models.enums.TipoPersona;
 import clinica.version_java.repositories.AntecedentesFamiliaresRepository;
 import clinica.version_java.repositories.ContactoEmergenciaRepository;
 import clinica.version_java.repositories.CorreoPersonaRepository;
@@ -93,16 +94,25 @@ public class PersonaService {
 
     /*
      * Metodo de lectura de Personas
-     * 
-     * @param pageable para manejar los datos a devolver de la pagina
-     * 
-     * @return retorna una pagina DTOPersonaBase
      */
-    public Page<DTOPersonaBase> obtenerPersonas(Pageable pageable) {
+    public Page<DTOPersonaBase> obtenerPersonas(Pageable pageable, TipoPersona tipoPersona) {
 
-        Page<Persona> page = personaRepository.findByEstado(Estado.ACTIVO, pageable);
+        Page<Persona> page = personaRepository.findByEstadoAndTipoPersona(Estado.ACTIVO, tipoPersona , pageable );
         return page.map(DTOPersonaBase::new);
     }
+
+
+
+    /*
+     * metodos para aplicar a la barra de busqueda para buscar por campos de
+     *          nombre
+     *          dui
+     *          sexo
+     * 
+     * 
+     * @param nombre de la columna a buscar
+     * @return Page<DTOPersonaBase>  de coincidencias
+    */
 
     public Page<DTOPersonaBase> obtenerBusquedaSimilarNombre(Pageable pageable, String nombre) {
         return personaRepository.findByEstadoAndNombresContainingIgnoreCase(Estado.ACTIVO, nombre, pageable)
@@ -117,18 +127,42 @@ public class PersonaService {
         return personaRepository.findByEstadoAndSexo(Estado.ACTIVO, sexo, pageable).map(DTOPersonaBase::new);
     }
 
+    /*
+     * obtener los contactos de emergencia de una persona
+     * 
+     * @param id de la persona a la que le buscare los contactos
+     * 
+     * @return DTOContactosEmergencia que tenga la persona si tiene
+     * 
+     */
+    public List<DTOContactosEmergencia> obtenerContactos(int idPaciente) {
+        List<ContactoEmergencia> contactos = contactoEmergenciaRepository.findContactosByPacienteId(idPaciente);
+
+        return contactos.stream()
+                .map(ce -> new DTOContactosEmergencia(new DTOPersonaBase(ce.getContacto()), ce.getRelacion()))
+                .toList();
+    }
+
+    /*
+     * obtener los antecedentes familiares de una persona
+     * 
+     * @param id de la persona a la que le buscare los antecedentes
+     * 
+     * @return DTOAntecedentesFamiliares que tenga la persona si tiene
+     * 
+     */
+
+    public List<DTOAntecedentesFamiliares> obtenerAntecedentes(int idPaciente) {
+        List<AntecedentesFamiliares> contactos = antecedentesFamiliaresRepository.findContactosByPacienteId(idPaciente);
+
+        return contactos.stream()
+                .map(ce -> new DTOAntecedentesFamiliares(new DTOPersonaBase(ce.getFamiliar()), ce.getAntecedentes()))
+                .toList();
+    }
     // -----------------------------------METODOS_PRIVADOS-----------------------------------
     // -------------------------------HELPER_METHODS-----------------------------------
 
-    /**
-     * Guarda los teléfonos de una persona.
-     * <p>
-     * Evita duplicados verificando los teléfonos existentes en la entidad.
-     * No hace nada si la lista de teléfonos es nula o vacía.
-     *
-     * @param persona   La persona a la que se asociarán los teléfonos
-     * @param telefonos Lista de teléfonos a guardar
-     */
+
     private void guardarTelefonos(Persona persona, List<String> telefonos) {
         if (telefonos == null || telefonos.isEmpty())
             return;
@@ -144,15 +178,7 @@ public class PersonaService {
                         .toList());
     }
 
-    /**
-     * Guarda los correos de una persona.
-     * <p>
-     * Evita duplicados verificando los correos existentes en la entidad.
-     * No hace nada si la lista de correos es nula o vacía.
-     *
-     * @param persona La persona a la que se asociarán los teléfonos
-     * @param correos Lista de correos a guardar
-     */
+
     private void guardarCorreos(Persona persona, List<String> correos) {
         if (correos == null || correos.isEmpty())
             return;
@@ -167,18 +193,6 @@ public class PersonaService {
                         .toList());
     }
 
-    /**
-     * Guarda los contactos de emergencia de una persona.
-     * <p>
-     * Cada contacto se guarda como una persona separada si no existe previamente
-     * (según el DUI).
-     * También guarda sus teléfonos y correos.
-     *
-     * @param contactosEmergencia Lista de DTOs con la información de los contactos
-     * @param persona             Persona principal a la que se asocian los
-     *                            contactos
-     * @throws Exception Si ocurre algún error al guardar los contactos
-     */
     private void guardarInformacionPersonaRelacionada(List<DTOContactosEmergencia> contactosEmergencia, Persona persona)
             throws Exception {
         try {
@@ -205,19 +219,6 @@ public class PersonaService {
 
     }
 
-    /**
-     * Guarda los antecedentes familiares de una persona.
-     * <p>
-     * Cada contacto se guarda como una persona separada si no existe previamente
-     * (según el DUI).
-     * También guarda sus teléfonos y correos.
-     *
-     * @param antecedentesFamiliares Lista de DTOs con la información de los
-     *                               contactos
-     * @param persona                Persona principal a la que se asocian los
-     *                               contactos
-     * @throws Exception Si ocurre algún error al guardar los contactos
-     */
     private void guardarInformacionPersonaRelacionada(Persona persona,
             List<DTOAntecedentesFamiliares> antecedentesFamiliares)
             throws Exception {

@@ -2,8 +2,11 @@ package clinica.version_java.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import clinica.version_java.models.enums.Estado;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,6 +31,9 @@ public class AntecedentesFamiliares {
     private int idAntecedentesFamiliares;
     @Column(name = "antecedentes")
     private String antecedentes;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Estado estado= Estado.ACTIVO;
 
 
     @ManyToOne
