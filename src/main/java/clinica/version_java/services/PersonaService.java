@@ -16,6 +16,8 @@ import clinica.version_java.models.ContactoEmergencia;
 import clinica.version_java.models.CorreoPersona;
 import clinica.version_java.models.Persona;
 import clinica.version_java.models.TelefonoPersona;
+import clinica.version_java.models.enums.Estado;
+import clinica.version_java.models.enums.Sexo;
 import clinica.version_java.repositories.AntecedentesFamiliaresRepository;
 import clinica.version_java.repositories.ContactoEmergenciaRepository;
 import clinica.version_java.repositories.CorreoPersonaRepository;
@@ -89,18 +91,30 @@ public class PersonaService {
 
     }
 
-
-
     /*
-     * Metodo de lectura de Personas 
+     * Metodo de lectura de Personas
      * 
      * @param pageable para manejar los datos a devolver de la pagina
+     * 
      * @return retorna una pagina DTOPersonaBase
-    */
+     */
     public Page<DTOPersonaBase> obtenerPersonas(Pageable pageable) {
 
-        Page<Persona> page =personaRepository.obtenerPagina(pageable);
+        Page<Persona> page = personaRepository.findByEstado(Estado.ACTIVO, pageable);
         return page.map(DTOPersonaBase::new);
+    }
+
+    public Page<DTOPersonaBase> obtenerBusquedaSimilarNombre(Pageable pageable, String nombre) {
+        return personaRepository.findByEstadoAndNombresContainingIgnoreCase(Estado.ACTIVO, nombre, pageable)
+                .map(DTOPersonaBase::new);
+    }
+
+    public Page<DTOPersonaBase> obtenerPorDui(Pageable pageable, String dui) {
+        return personaRepository.findByDui(dui, pageable).map(DTOPersonaBase::new);
+    }
+
+    public Page<DTOPersonaBase> obtenerPorSexo(Pageable pageable, Sexo sexo) {
+        return personaRepository.findByEstadoAndSexo(Estado.ACTIVO, sexo, pageable).map(DTOPersonaBase::new);
     }
 
     // -----------------------------------METODOS_PRIVADOS-----------------------------------
