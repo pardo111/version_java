@@ -7,14 +7,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.http.HttpEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.web.client.RestTemplate;
 
+import clinica.version_java.DTOs.DTOPersonaBase;
 import clinica.version_java.DTOs.DTOPersona;
 import clinica.version_java.models.Persona;
 
@@ -118,9 +121,33 @@ public class PersonaTest {
 
         HttpEntity<String> request = new HttpEntity<>(jsonPersona, headers);
 
-        ResponseEntity<DTOPersona> response = restTemplate.postForEntity(baseUrl+"/create", request, DTOPersona.class);
+        ResponseEntity<DTOPersona> response = restTemplate.postForEntity(baseUrl + "/create", request,
+                DTOPersona.class);
 
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertNotNull(response.getBody());
+    }
+
+    @Test
+    void debeRetornarPaginacionDTOPersonaBase() {
+        String json = """
+                {
+                    "tipoPersona":"PACIENTE"
+                }
+                """;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Void> request = new HttpEntity<>(headers);
+
+        ResponseEntity<String> response = restTemplate.exchange(
+                baseUrl + "/pages?tipoPersona=PACIENTE",
+                HttpMethod.GET,
+                request,
+                String.class);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+
     }
 }
