@@ -115,7 +115,8 @@ public class PersonaController {
         if (personaService.eliminarContactoEmergencia((Integer) body.get("idPaciente"), (Integer) body.get("idContacto"))) 
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
-        
     }
 
+
+    
 }

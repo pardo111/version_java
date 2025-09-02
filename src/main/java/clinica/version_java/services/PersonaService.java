@@ -135,12 +135,10 @@ public class PersonaService {
             e.printStackTrace();
             return false;
         }
-
     }
     // -------------------------------------METODOS_DE_LECTURA---------------------------------
 
     public Page<DTOPersonaBase> obtenerPersonas(Pageable pageable, TipoPersona tipoPersona) {
-
         Page<Persona> page = personaRepository.findByEstadoAndTipoPersona(Estado.ACTIVO, tipoPersona, pageable);
         return page.map(DTOPersonaBase::new);
     }
@@ -160,7 +158,6 @@ public class PersonaService {
 
     public List<DTOContactosEmergencia> obtenerContactos(int idPaciente) {
         List<ContactoEmergencia> contactos = contactoEmergenciaRepository.findContactosByPacienteId(idPaciente);
-
         return contactos.stream()
                 .map(ce -> new DTOContactosEmergencia(new DTOPersonaBase(ce.getContacto()), ce.getRelacion()))
                 .toList();
@@ -168,7 +165,6 @@ public class PersonaService {
 
     public List<DTOAntecedentesFamiliares> obtenerAntecedentes(int idPaciente) {
         List<AntecedentesFamiliares> contactos = antecedentesFamiliaresRepository.findContactosByPacienteId(idPaciente);
-
         return contactos.stream()
                 .map(ce -> new DTOAntecedentesFamiliares(new DTOPersonaBase(ce.getFamiliar()), ce.getAntecedentes()))
                 .toList();

@@ -20,16 +20,10 @@ import lombok.ToString;
 
 @NoArgsConstructor
 @Entity
-@Table(
-    name = "antecedentes_familiares",
-    uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"id_paciente", "id_familiar"})
-    }
-)
-@ToString(exclude = {"paciente", "familiar"})
+@Table(name = "antecedentes_familiares")
+@ToString(exclude = { "paciente", "familiar" })
 @Data
 public class AntecedentesFamiliares {
-    
 
     @Id
     @Column(name = "id_antecendetes_familiares")
@@ -39,11 +33,10 @@ public class AntecedentesFamiliares {
     private String antecedentes;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Estado estado= Estado.ACTIVO;
-
+    private Estado estado = Estado.ACTIVO;
 
     @ManyToOne
-    @JoinColumn(name="id_paciente", referencedColumnName = "id_persona")
+    @JoinColumn(name = "id_paciente", referencedColumnName = "id_persona")
     @JsonIgnore
     private Persona paciente;
     @ManyToOne
@@ -51,12 +44,10 @@ public class AntecedentesFamiliares {
     @JsonIgnore
     private Persona familiar;
 
-
     public AntecedentesFamiliares(String antecedentes, Persona paciente, Persona familiar) {
         this.antecedentes = antecedentes;
         this.paciente = paciente;
         this.familiar = familiar;
     }
 
-    
 }

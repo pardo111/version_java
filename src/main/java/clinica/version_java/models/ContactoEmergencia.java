@@ -1,6 +1,7 @@
 package clinica.version_java.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import clinica.version_java.models.enums.Estado;
 import clinica.version_java.models.enums.Relacion;
@@ -20,17 +21,12 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(
-    name = "contacto_emergencia",
-    uniqueConstraints={
-            @UniqueConstraint(columnNames={"id_paciente", "id_contacto"})
-    }
-    )
+@Table(name = "contacto_emergencia")
 @Data
-@ToString(exclude = {"paciente", "contacto"})
+@ToString(exclude = { "paciente", "contacto" })
 @NoArgsConstructor
 public class ContactoEmergencia {
-    
+
     @Id
     @Column(name = "id_contacto_emergencia")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,22 +37,20 @@ public class ContactoEmergencia {
     private Estado estado = Estado.ACTIVO;
 
     @ManyToOne
-    @JoinColumn(name="id_paciente", referencedColumnName = "id_persona")
+    @JoinColumn(name = "id_paciente", referencedColumnName = "id_persona")
+    @JsonManagedReference
     @JsonIgnore
     private Persona paciente;
     @ManyToOne
-    @JoinColumn(name="id_contacto", referencedColumnName = "id_persona")
+    @JsonManagedReference
+    @JoinColumn(name = "id_contacto", referencedColumnName = "id_persona")
     @JsonIgnore
     private Persona contacto;
 
-    
     public ContactoEmergencia(Relacion relacion, Persona paciente, Persona contacto) {
         this.relacion = relacion;
         this.paciente = paciente;
         this.contacto = contacto;
     }
 
-
-
-    
 }
