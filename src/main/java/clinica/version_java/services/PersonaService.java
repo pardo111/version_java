@@ -93,6 +93,21 @@ public class PersonaService {
 
     }
 
+    @Transactional
+    public CorreoPersona eliminarCorreoPersona(String correo) throws Error {
+        try {
+            CorreoPersona correoPersona = correoPersonaRepository.findByCorreo(correo)
+                    .orElseGet(() -> new CorreoPersona());
+            correoPersona.setCorreo(correo);
+            correoPersona.setEstado(Estado.INACTIVO);
+            correoPersonaRepository.save(correoPersona);
+            return correoPersona;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Error("error en la eliminacion");
+        }
+    }
+
     // -------------------------------------METODOS_DE_LECTURA---------------------------------
 
     public Page<DTOPersonaBase> obtenerPersonas(Pageable pageable, TipoPersona tipoPersona) {

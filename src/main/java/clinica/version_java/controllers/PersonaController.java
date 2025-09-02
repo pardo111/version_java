@@ -6,11 +6,13 @@ import clinica.version_java.DTOs.DTOAntecedentesFamiliares;
 import clinica.version_java.DTOs.DTOContactosEmergencia;
 import clinica.version_java.DTOs.DTOPersona;
 import clinica.version_java.DTOs.DTOPersonaBase;
+import clinica.version_java.models.CorreoPersona;
 import clinica.version_java.models.enums.Sexo;
 import clinica.version_java.models.enums.TipoPersona;
 import clinica.version_java.services.PersonaService;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -60,8 +62,7 @@ public class PersonaController {
     @GetMapping("/pages")
     public Page<DTOPersonaBase> obtenerPersonas(
             @PageableDefault(page = 0, size = 10, sort = "nombres", direction = Sort.Direction.ASC) Pageable pageable,
-            TipoPersona tipoPersona
-            ) {
+            TipoPersona tipoPersona) {
         return personaService.obtenerPersonas(pageable, tipoPersona);
     }
 
@@ -94,6 +95,11 @@ public class PersonaController {
     @GetMapping("/{id}/antecedentes")
     public List<DTOAntecedentesFamiliares> obtenerAntecedentes(@PathVariable("id") int id) {
         return personaService.obtenerAntecedentes(id);
+    }
+
+    @PostMapping("/eliminarCorreoPersona")
+    public CorreoPersona eliminarCorreoPersona(@RequestParam String correo) {
+        return personaService.eliminarCorreoPersona( correo);
     }
 
 }
