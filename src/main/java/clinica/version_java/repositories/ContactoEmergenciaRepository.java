@@ -1,6 +1,7 @@
 package clinica.version_java.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import clinica.version_java.models.ContactoEmergencia;
 import clinica.version_java.models.Persona;
+import clinica.version_java.models.enums.Estado;
 
 @Repository
 public interface ContactoEmergenciaRepository extends JpaRepository<ContactoEmergencia, Integer>{
@@ -21,6 +23,10 @@ public interface ContactoEmergenciaRepository extends JpaRepository<ContactoEmer
         """)
     List<ContactoEmergencia> findContactosByPacienteId(int idPaciente);
 
-    boolean existsByPacienteAndContacto(Persona paciente, Persona contacto);
+    boolean existsByPacienteAndContactoAndEstado(Persona paciente, Persona contacto, Estado estado);
+
+
+    @Query("SELECT ce FROM ContactoEmergencia ce WHERE ce.contacto.idPersona = :idContacto AND ce.paciente.idPersona = :idPaciente")
+    Optional<ContactoEmergencia> findByContactoAndPaciente(int idContacto, int idPaciente);
 
 }

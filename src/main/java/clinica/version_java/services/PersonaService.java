@@ -108,6 +108,35 @@ public class PersonaService {
         }
     }
 
+    @Transactional
+    public TelefonoPersona eliminarTelefonoPersona(String telefono) throws Error {
+        try {
+            TelefonoPersona telefonoPersona = telefonoPersonaRepository.findByTelefono(telefono)
+                    .orElseGet(() -> new TelefonoPersona());
+            telefonoPersona.setTelefono(telefono);
+            telefonoPersona.setEstado(Estado.INACTIVO);
+            telefonoPersonaRepository.save(telefonoPersona);
+            return telefonoPersona;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Error("error en la eliminacion");
+        }
+    }
+
+    @Transactional
+    public boolean eliminarContactoEmergencia(int idPaciente, int idContacto) {
+        try {
+            ContactoEmergencia contactoEmergencia = contactoEmergenciaRepository.findByContactoAndPaciente(idContacto, idPaciente)
+                    .orElseGet(() -> new ContactoEmergencia());
+            contactoEmergencia.setEstado(Estado.INACTIVO);
+            contactoEmergenciaRepository.save(contactoEmergencia);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
     // -------------------------------------METODOS_DE_LECTURA---------------------------------
 
     public Page<DTOPersonaBase> obtenerPersonas(Pageable pageable, TipoPersona tipoPersona) {
@@ -192,7 +221,7 @@ public class PersonaService {
             for (int i = 0; i < contactosEmergencia.size(); i++) {
                 guardarTelefonos(personasGuardadas.get(i), contactosEmergencia.get(i).getTelefonos());
                 guardarCorreos(personasGuardadas.get(i), contactosEmergencia.get(i).getCorreos());
-                if (!contactoEmergenciaRepository.existsByPacienteAndContacto(persona, personasGuardadas.get(i)))
+                if (!contactoEmergenciaRepository.existsByPacienteAndContactoAndEstado(persona, personasGuardadas.get(i), Estado.ACTIVO))
                     contactosGuardados.add(new ContactoEmergencia(contactosEmergencia.get(i).getRelacion(), persona,
                             personasGuardadas.get(i)));
             }
@@ -222,8 +251,8 @@ public class PersonaService {
 
                 guardarTelefonos(personasGuardadas.get(i), antecedentesFamiliares.get(i).getTelefonos());
                 guardarCorreos(personasGuardadas.get(i), antecedentesFamiliares.get(i).getCorreos());
-                if (!antecedentesFamiliaresRepository.existsByPacienteAndFamiliar(persona,
-                        personasGuardadas.get(i)))
+                if (!antecedentesFamiliaresRepository.existsByPacienteAndFamiliarAndEstado(persona,
+                        personasGuardadas.get(i), Estado.ACTIVO))
                     antecedentesGuardados
                             .add(new AntecedentesFamiliares(antecedentesFamiliares.get(i).getAntecedente(), persona,
                                     personasGuardadas.get(i)));

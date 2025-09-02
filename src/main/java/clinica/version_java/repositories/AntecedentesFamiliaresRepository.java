@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import clinica.version_java.models.AntecedentesFamiliares;
 import clinica.version_java.models.Persona;
+import clinica.version_java.models.enums.Estado;
 
 @Repository
 public interface AntecedentesFamiliaresRepository extends JpaRepository<AntecedentesFamiliares, Integer> {
@@ -21,5 +22,5 @@ public interface AntecedentesFamiliaresRepository extends JpaRepository<Antecede
             """)
     List<AntecedentesFamiliares> findContactosByPacienteId(int idPaciente);
 
-    boolean existsByPacienteAndFamiliar (Persona paciente, Persona familiar);
+    boolean existsByPacienteAndFamiliarAndEstado (Persona paciente, Persona familiar, Estado estado);
 }

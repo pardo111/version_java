@@ -7,6 +7,7 @@ import clinica.version_java.DTOs.DTOContactosEmergencia;
 import clinica.version_java.DTOs.DTOPersona;
 import clinica.version_java.DTOs.DTOPersonaBase;
 import clinica.version_java.models.CorreoPersona;
+import clinica.version_java.models.TelefonoPersona;
 import clinica.version_java.models.enums.Sexo;
 import clinica.version_java.models.enums.TipoPersona;
 import clinica.version_java.services.PersonaService;
@@ -14,11 +15,13 @@ import clinica.version_java.services.PersonaService;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -99,7 +102,20 @@ public class PersonaController {
 
     @PostMapping("/eliminarCorreoPersona")
     public CorreoPersona eliminarCorreoPersona(@RequestParam String correo) {
-        return personaService.eliminarCorreoPersona( correo);
+        return personaService.eliminarCorreoPersona(correo);
+    }
+
+    @PostMapping("/eliminarTelefonoPersona")
+    public TelefonoPersona eliminarTelefonoPersona(@RequestParam String telefono) {
+        return personaService.eliminarTelefonoPersona(telefono);
+    }
+
+    @PostMapping("/eliminarContactoEmergencia")
+    public ResponseEntity<?> eliminarContactoEmergencia(@RequestBody Map<String, Integer> body) {
+        if (personaService.eliminarContactoEmergencia((Integer) body.get("idPaciente"), (Integer) body.get("idContacto"))) 
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+        
     }
 
 }
