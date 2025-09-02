@@ -12,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.UniqueConstraint;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -19,7 +20,12 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "contacto_emergencia")
+@Table(
+    name = "contacto_emergencia",
+    uniqueConstraints={
+            @UniqueConstraint(columnNames={"id_paciente", "id_contacto"})
+    }
+    )
 @Data
 @ToString(exclude = {"paciente", "contacto"})
 @NoArgsConstructor

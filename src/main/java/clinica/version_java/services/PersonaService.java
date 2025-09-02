@@ -87,32 +87,19 @@ public class PersonaService {
             persona.setIdPersona(personaGuardada.getIdPersona());
             return persona;
         } catch (Exception e) {
+            e.printStackTrace();
             throw new Exception("Error al crear la persona completa", e);
         }
 
     }
 
-    /*
-     * Metodo de lectura de Personas
-     */
+    // -------------------------------------METODOS_DE_LECTURA---------------------------------
+
     public Page<DTOPersonaBase> obtenerPersonas(Pageable pageable, TipoPersona tipoPersona) {
 
-        Page<Persona> page = personaRepository.findByEstadoAndTipoPersona(Estado.ACTIVO, tipoPersona , pageable );
+        Page<Persona> page = personaRepository.findByEstadoAndTipoPersona(Estado.ACTIVO, tipoPersona, pageable);
         return page.map(DTOPersonaBase::new);
     }
-
-
-
-    /*
-     * metodos para aplicar a la barra de busqueda para buscar por campos de
-     *          nombre
-     *          dui
-     *          sexo
-     * 
-     * 
-     * @param nombre de la columna a buscar
-     * @return Page<DTOPersonaBase>  de coincidencias
-    */
 
     public Page<DTOPersonaBase> obtenerBusquedaSimilarNombre(Pageable pageable, String nombre) {
         return personaRepository.findByEstadoAndNombresContainingIgnoreCase(Estado.ACTIVO, nombre, pageable)
@@ -127,14 +114,6 @@ public class PersonaService {
         return personaRepository.findByEstadoAndSexo(Estado.ACTIVO, sexo, pageable).map(DTOPersonaBase::new);
     }
 
-    /*
-     * obtener los contactos de emergencia de una persona
-     * 
-     * @param id de la persona a la que le buscare los contactos
-     * 
-     * @return DTOContactosEmergencia que tenga la persona si tiene
-     * 
-     */
     public List<DTOContactosEmergencia> obtenerContactos(int idPaciente) {
         List<ContactoEmergencia> contactos = contactoEmergenciaRepository.findContactosByPacienteId(idPaciente);
 
@@ -142,15 +121,6 @@ public class PersonaService {
                 .map(ce -> new DTOContactosEmergencia(new DTOPersonaBase(ce.getContacto()), ce.getRelacion()))
                 .toList();
     }
-
-    /*
-     * obtener los antecedentes familiares de una persona
-     * 
-     * @param id de la persona a la que le buscare los antecedentes
-     * 
-     * @return DTOAntecedentesFamiliares que tenga la persona si tiene
-     * 
-     */
 
     public List<DTOAntecedentesFamiliares> obtenerAntecedentes(int idPaciente) {
         List<AntecedentesFamiliares> contactos = antecedentesFamiliaresRepository.findContactosByPacienteId(idPaciente);
@@ -161,7 +131,6 @@ public class PersonaService {
     }
     // -----------------------------------METODOS_PRIVADOS-----------------------------------
     // -------------------------------HELPER_METHODS-----------------------------------
-
 
     private void guardarTelefonos(Persona persona, List<String> telefonos) {
         if (telefonos == null || telefonos.isEmpty())
@@ -177,7 +146,6 @@ public class PersonaService {
                         .map(t -> new TelefonoPersona(t, persona))
                         .toList());
     }
-
 
     private void guardarCorreos(Persona persona, List<String> correos) {
         if (correos == null || correos.isEmpty())
@@ -198,6 +166,7 @@ public class PersonaService {
         try {
             if (contactosEmergencia == null || contactosEmergencia.isEmpty())
                 return;
+
             List<Persona> personasGuardadas = contactosEmergencia.stream()
                     .map(dto -> personaRepository.findByDui(dto.getDui())
                             .orElseGet(() -> new Persona(dto)))
@@ -208,8 +177,9 @@ public class PersonaService {
             for (int i = 0; i < contactosEmergencia.size(); i++) {
                 guardarTelefonos(personasGuardadas.get(i), contactosEmergencia.get(i).getTelefonos());
                 guardarCorreos(personasGuardadas.get(i), contactosEmergencia.get(i).getCorreos());
-                contactosGuardados.add(new ContactoEmergencia(contactosEmergencia.get(i).getRelacion(), persona,
-                        personasGuardadas.get(i)));
+                if (!contactoEmergenciaRepository.existsByPacienteAndContacto(persona, personasGuardadas.get(i)))
+                    contactosGuardados.add(new ContactoEmergencia(contactosEmergencia.get(i).getRelacion(), persona,
+                            personasGuardadas.get(i)));
             }
 
             contactoEmergenciaRepository.saveAll(contactosGuardados);
@@ -237,9 +207,11 @@ public class PersonaService {
 
                 guardarTelefonos(personasGuardadas.get(i), antecedentesFamiliares.get(i).getTelefonos());
                 guardarCorreos(personasGuardadas.get(i), antecedentesFamiliares.get(i).getCorreos());
-                antecedentesGuardados
-                        .add(new AntecedentesFamiliares(antecedentesFamiliares.get(i).getAntecedente(), persona,
-                                personasGuardadas.get(i)));
+                if (!antecedentesFamiliaresRepository.existsByPacienteAndFamiliar(persona,
+                        personasGuardadas.get(i)))
+                    antecedentesGuardados
+                            .add(new AntecedentesFamiliares(antecedentesFamiliares.get(i).getAntecedente(), persona,
+                                    personasGuardadas.get(i)));
             }
 
             antecedentesFamiliaresRepository.saveAll(antecedentesGuardados);

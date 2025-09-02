@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import clinica.version_java.models.enums.Estado;
 import jakarta.persistence.Column;
+import jakarta.persistence.UniqueConstraint;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -19,7 +20,12 @@ import lombok.ToString;
 
 @NoArgsConstructor
 @Entity
-@Table(name = "antecedentes_familiares")
+@Table(
+    name = "antecedentes_familiares",
+    uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"id_paciente", "id_familiar"})
+    }
+)
 @ToString(exclude = {"paciente", "familiar"})
 @Data
 public class AntecedentesFamiliares {

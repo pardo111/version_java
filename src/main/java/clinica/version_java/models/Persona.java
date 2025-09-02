@@ -13,7 +13,7 @@ import jakarta.persistence.OneToOne;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -85,28 +85,28 @@ public class Persona {
     // -----------------------------------------------------------------------------------
     @OneToMany(mappedBy = "persona", fetch = FetchType.LAZY)
     @JsonManagedReference
-    private Set<CorreoPersona> correoPersona;
+    private Set<CorreoPersona> correoPersona = new HashSet<>();
     @OneToMany(mappedBy = "persona", fetch = FetchType.LAZY)
     @JsonManagedReference
-    private Set<TelefonoPersona> telefonoPersona;
+    private Set<TelefonoPersona> telefonoPersona = new HashSet<>();
     @OneToMany(mappedBy = "contacto")
     @JsonManagedReference
-    private Set<ContactoEmergencia> contacto;
+    private Set<ContactoEmergencia> contacto = new HashSet<>();
     @OneToMany(mappedBy = "paciente")
     @JsonManagedReference
-    private Set<ContactoEmergencia> pacienteContacto;
+    private Set<ContactoEmergencia> pacienteContacto = new HashSet<>();
     @OneToMany(mappedBy = "paciente")
     @JsonManagedReference
-    private Set<AntecedentesFamiliares> pacienteFamiliar;
+    private Set<AntecedentesFamiliares> pacienteFamiliar = new HashSet<>();
     @OneToMany(mappedBy = "familiar")
     @JsonManagedReference
-    private Set<AntecedentesFamiliares> familiar;
+    private Set<AntecedentesFamiliares> familiar = new HashSet<>();
     @OneToOne(mappedBy = "persona")
     private Usuarios usuarios;
     @OneToMany(mappedBy = "paciente")
-    private List<Citas> paciente;
+    private Set<Citas> paciente = new HashSet<>();
     @OneToMany(mappedBy = "medico")
-    private List<Citas> medico;
+    private Set<Citas> medico = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {

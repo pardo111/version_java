@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import clinica.version_java.models.ContactoEmergencia;
+import clinica.version_java.models.Persona;
 
 @Repository
 public interface ContactoEmergenciaRepository extends JpaRepository<ContactoEmergencia, Integer>{
@@ -19,5 +20,7 @@ public interface ContactoEmergenciaRepository extends JpaRepository<ContactoEmer
           AND c.estado = clinica.version_java.models.enums.Estado.ACTIVO
         """)
     List<ContactoEmergencia> findContactosByPacienteId(int idPaciente);
+
+    boolean existsByPacienteAndContacto(Persona paciente, Persona contacto);
 
 }
