@@ -3,8 +3,7 @@ package clinica.version_java.DTOs;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Set;
-
+ 
 import clinica.version_java.models.enums.Estado;
 import clinica.version_java.models.Persona;
 import clinica.version_java.models.enums.Sexo;

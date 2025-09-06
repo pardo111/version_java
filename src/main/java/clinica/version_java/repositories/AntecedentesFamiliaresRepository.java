@@ -1,6 +1,7 @@
 package clinica.version_java.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -23,4 +24,6 @@ public interface AntecedentesFamiliaresRepository extends JpaRepository<Antecede
     List<AntecedentesFamiliares> findContactosByPacienteId(int idPaciente);
 
     boolean existsByPacienteAndFamiliarAndEstado (Persona paciente, Persona familiar, Estado estado);
+
+    Optional<AntecedentesFamiliares> findByPacienteAndFamiliar(Persona paciente, Persona familiar);
 }

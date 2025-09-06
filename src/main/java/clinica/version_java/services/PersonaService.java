@@ -1,8 +1,8 @@
 package clinica.version_java.services;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -11,6 +11,11 @@ import clinica.version_java.DTOs.DTOAntecedentesFamiliares;
 import clinica.version_java.DTOs.DTOContactosEmergencia;
 import clinica.version_java.DTOs.DTOPersona;
 import clinica.version_java.DTOs.DTOPersonaBase;
+import clinica.version_java.Exceptions.contactoEmergenciaExceptions.ContactoEmergenciaNotFoundException;
+import clinica.version_java.Exceptions.correoPersonaExceptions.CorreoPersonaNotFoundException;
+import clinica.version_java.Exceptions.personaExceptions.PersonaNotFoundException;
+import clinica.version_java.Exceptions.personaExceptions.PersonaSaveException;
+import clinica.version_java.Exceptions.telefonoPersonaException.TelefonoPersonaNotFoundException;
 import clinica.version_java.models.AntecedentesFamiliares;
 import clinica.version_java.models.ContactoEmergencia;
 import clinica.version_java.models.CorreoPersona;
@@ -49,7 +54,8 @@ public class PersonaService {
      */
     public PersonaService(PersonaRepository personaRepository,
             ContactoEmergenciaRepository contactoEmergenciaRepository,
-            TelefonoPersonaRepository telefonoPersonaRepository, CorreoPersonaRepository correoPersonaRepository,
+            TelefonoPersonaRepository telefonoPersonaRepository,
+            CorreoPersonaRepository correoPersonaRepository,
             AntecedentesFamiliaresRepository antecedentesFamiliaresRepository) {
         this.personaRepository = personaRepository;
         this.contactoEmergenciaRepository = contactoEmergenciaRepository;
@@ -73,11 +79,25 @@ public class PersonaService {
      * @throws Exception si ocurre un error al guardar la información
      */
     @Transactional(rollbackOn = Exception.class)
-    public DTOPersona guardarPersonaCompleta(DTOPersona persona) throws Exception {
+    public DTOPersona guardarOActualizarPersonaCompleta(DTOPersona persona) throws PersonaSaveException {
 
         try {
-            Persona personaGuardada = personaRepository.findByDui(persona.getDui())
-                    .orElseGet(() -> personaRepository.save(new Persona(persona)));
+            Persona personaGuardada;
+
+            if (personaRepository.existsByDui(persona.getDui())) {
+                // para actualizar persona
+                personaGuardada = personaRepository.findByDui(persona.getDui())
+                        .orElseThrow(() -> new PersonaNotFoundException("persona no existe"));
+                personaGuardada.setNombres(persona.getNombres());
+                personaGuardada.setApellidos(persona.getApellidos());
+                personaGuardada.setEstado(persona.getEstado());
+                personaGuardada.setFechaNacimiento(persona.getFechaNacimiento());
+                personaGuardada.setDireccion(persona.getDireccion());
+
+            } else {
+                // para crear una nueva persona
+                personaGuardada = personaRepository.save(new Persona(persona));
+            }
 
             guardarTelefonos(personaGuardada, persona.getTelefonos());
             guardarCorreos(personaGuardada, persona.getCorreos());
@@ -88,53 +108,131 @@ public class PersonaService {
             return persona;
         } catch (Exception e) {
             e.printStackTrace();
-            throw new Exception("Error al crear la persona completa", e);
+            throw new PersonaSaveException("Error al crear la persona completa" + e.getMessage());
         }
 
-    }
-
-    @Transactional
-    public CorreoPersona eliminarCorreoPersona(String correo) throws Error {
-        try {
-            CorreoPersona correoPersona = correoPersonaRepository.findByCorreo(correo)
-                    .orElseGet(() -> new CorreoPersona());
-            correoPersona.setCorreo(correo);
-            correoPersona.setEstado(Estado.INACTIVO);
-            correoPersonaRepository.save(correoPersona);
-            return correoPersona;
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new Error("error en la eliminacion");
-        }
-    }
-
-    @Transactional
-    public TelefonoPersona eliminarTelefonoPersona(String telefono) throws Error {
-        try {
-            TelefonoPersona telefonoPersona = telefonoPersonaRepository.findByTelefono(telefono)
-                    .orElseGet(() -> new TelefonoPersona());
-            telefonoPersona.setTelefono(telefono);
-            telefonoPersona.setEstado(Estado.INACTIVO);
-            telefonoPersonaRepository.save(telefonoPersona);
-            return telefonoPersona;
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new Error("error en la eliminacion");
-        }
     }
 
     @Transactional
     public boolean eliminarContactoEmergencia(int idPaciente, int idContacto) {
+        ContactoEmergencia contactoEmergencia = contactoEmergenciaRepository
+                .findByContactoAndPaciente(idContacto, idPaciente)
+                .orElseThrow(() -> new ContactoEmergenciaNotFoundException("No existe el registro "));
+        contactoEmergencia.setEstado(Estado.INACTIVO);
+        contactoEmergenciaRepository.save(contactoEmergencia);
+        return true;
+    }
+
+    @Transactional
+    public boolean actualizarCorreo(String correoNuevo, String correoAntiguo, int idPersona, Estado estado) {
+
+        return personaRepository.findById(idPersona)
+                .map(persona -> {
+                    CorreoPersona correoActualizado = correoPersonaRepository
+                            .findByPersonaAndCorreo(persona, correoAntiguo).orElseThrow(
+                                    () -> new CorreoPersonaNotFoundException(
+                                            "no se hallo el registro buscado por persona y correo"));
+                    correoActualizado.setCorreo(correoNuevo);
+                    correoActualizado.setEstado(estado);
+                    correoPersonaRepository.save(correoActualizado);
+                    return true;
+                })
+                .orElseThrow(() -> new PersonaNotFoundException("no existe la persona pasada"));
+
+    }
+
+    @Transactional
+    public boolean actualizarTelefono(String telefonoNuevo, String telefonoViejo, int idPersona, Estado estado) {
+
+        return personaRepository.findById(idPersona)
+                .map(
+                        persona -> {
+                            TelefonoPersona telefonoActualizado = telefonoPersonaRepository
+                                    .findByPersonaAndTelefono(persona, telefonoViejo)
+                                    .orElseThrow(() -> new TelefonoPersonaNotFoundException(
+                                            "no existe el telefono buscado por persona y telefono"));
+                            telefonoActualizado.setTelefono(telefonoNuevo);
+                            telefonoActualizado.setEstado(estado);
+                            telefonoPersonaRepository.save(telefonoActualizado);
+                            return true;
+                        })
+                .orElseThrow(() -> new PersonaNotFoundException("no existe la persona pasada"));
+
+    }
+
+    @Transactional
+    public boolean agregarCorreo(int idPersona, String correo) {
+        return personaRepository.findById(idPersona)
+                .map(persona -> {
+                    CorreoPersona correoNuevo = new CorreoPersona();
+                    correoNuevo.setCorreo(correo);
+                    correoNuevo.setPersona(persona);
+                    correoPersonaRepository.save(correoNuevo);
+                    return true;
+                })
+                .orElseThrow(() -> new PersonaNotFoundException("no existe la persona pasada"));
+    }
+
+    @Transactional
+    public boolean agregarTelefono(int idPersona, String telefono) {
+        return personaRepository.findById(idPersona)
+                .map(persona -> {
+                    TelefonoPersona telefonoPersona = new TelefonoPersona();
+                    telefonoPersona.setTelefono(telefono);
+                    telefonoPersona.setPersona(persona);
+                    telefonoPersonaRepository.save(telefonoPersona);
+                    return true;
+                })
+                .orElseThrow(() -> new PersonaNotFoundException("no existe la persona pasada"));
+    }
+
+    @Transactional
+    public boolean eliminarAntecedenteFamiliar(int idPaciente, int idFamiliar) throws PersonaNotFoundException {
+
         try {
-            ContactoEmergencia contactoEmergencia = contactoEmergenciaRepository.findByContactoAndPaciente(idContacto, idPaciente)
-                    .orElseGet(() -> new ContactoEmergencia());
-            contactoEmergencia.setEstado(Estado.INACTIVO);
-            contactoEmergenciaRepository.save(contactoEmergencia);
+
+            Persona paciente = personaRepository.findById(idPaciente).orElseThrow(
+                    () -> new PersonaNotFoundException("no se encontro a la persona por el id " + idPaciente));
+            Persona familiar = personaRepository.findByIdPersona(idFamiliar);
+            AntecedentesFamiliares antecedentes = antecedentesFamiliaresRepository
+                    .findByPacienteAndFamiliar(paciente, familiar).orElseGet(null);
+            antecedentes.setEstado(Estado.INACTIVO);
+            antecedentesFamiliaresRepository.save(antecedentes);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
             return false;
         }
+
+    }
+
+    @Transactional
+    public void agregarAntecedente(DTOAntecedentesFamiliares antecedentesFamiliares)
+            throws PersonaNotFoundException, Exception {
+        Persona persona = personaRepository.findById(antecedentesFamiliares.getIdPersona())
+                .orElseThrow(() -> new PersonaNotFoundException("la persona no existe"));
+
+        try {
+            guardarInformacionPersonaRelacionada(persona, Collections.singletonList(antecedentesFamiliares));
+
+        } catch (Exception e) {
+            throw new RuntimeException("error al agregar al antecedente");
+        }
+
+    }
+
+    @Transactional
+    public void agregarContacto(DTOContactosEmergencia contactosEmergencia)
+            throws PersonaNotFoundException, Exception {
+        Persona persona = personaRepository.findById(contactosEmergencia.getIdPersona())
+                .orElseThrow(() -> new PersonaNotFoundException("la persona no existe"));
+
+        try {
+            guardarInformacionPersonaRelacionada(Collections.singletonList(contactosEmergencia), persona);
+
+        } catch (Exception e) {
+            throw new RuntimeException("error al agregar al antecedente");
+        }
+
     }
     // -------------------------------------METODOS_DE_LECTURA---------------------------------
 
@@ -217,7 +315,8 @@ public class PersonaService {
             for (int i = 0; i < contactosEmergencia.size(); i++) {
                 guardarTelefonos(personasGuardadas.get(i), contactosEmergencia.get(i).getTelefonos());
                 guardarCorreos(personasGuardadas.get(i), contactosEmergencia.get(i).getCorreos());
-                if (!contactoEmergenciaRepository.existsByPacienteAndContactoAndEstado(persona, personasGuardadas.get(i), Estado.ACTIVO))
+                if (!contactoEmergenciaRepository.existsByPacienteAndContactoAndEstado(persona,
+                        personasGuardadas.get(i), Estado.ACTIVO))
                     contactosGuardados.add(new ContactoEmergencia(contactosEmergencia.get(i).getRelacion(), persona,
                             personasGuardadas.get(i)));
             }

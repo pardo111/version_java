@@ -6,8 +6,7 @@ import clinica.version_java.DTOs.DTOAntecedentesFamiliares;
 import clinica.version_java.DTOs.DTOContactosEmergencia;
 import clinica.version_java.DTOs.DTOPersona;
 import clinica.version_java.DTOs.DTOPersonaBase;
-import clinica.version_java.models.CorreoPersona;
-import clinica.version_java.models.TelefonoPersona;
+import clinica.version_java.models.enums.Estado;
 import clinica.version_java.models.enums.Sexo;
 import clinica.version_java.models.enums.TipoPersona;
 import clinica.version_java.services.PersonaService;
@@ -15,13 +14,11 @@ import clinica.version_java.services.PersonaService;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,18 +41,19 @@ public class PersonaController {
     public ResponseEntity<?> crearPersonaCompleta(@RequestBody DTOPersona persona) {
         try {
             System.out.println(persona);
-            persona = personaService.guardarPersonaCompleta(persona);
+            persona = personaService.guardarOActualizarPersonaCompleta(persona);
             return ResponseEntity.status(HttpStatus.CREATED).body(persona);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }
 
+    // no jala
+
     @PostMapping("/update")
     public ResponseEntity<?> actualizar(@RequestBody DTOPersona persona) {
         try {
-            System.out.println(persona);
-            persona = personaService.guardarPersonaCompleta(persona);
+            persona = personaService.guardarOActualizarPersonaCompleta(persona);
             return ResponseEntity.status(HttpStatus.OK).body(persona);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(e.getMessage());
@@ -76,8 +74,8 @@ public class PersonaController {
         return personaService.obtenerBusquedaSimilarNombre(pageable, nombre);
     }
 
-    @GetMapping("/obtenerPorDui")
-    public Page<DTOPersonaBase> obtenerBusquedaPorDui(
+    @GetMapping("/obtenerBusquedaPorDuiExacto")
+    public Page<DTOPersonaBase> obtenerBusquedaPorDuiExacto(
             Pageable pageable,
             @RequestParam String dui) {
         return personaService.obtenerPorDui(pageable, dui);
@@ -100,23 +98,89 @@ public class PersonaController {
         return personaService.obtenerAntecedentes(id);
     }
 
-    @PostMapping("/eliminarCorreoPersona")
-    public CorreoPersona eliminarCorreoPersona(@RequestParam String correo) {
-        return personaService.eliminarCorreoPersona(correo);
-    }
-
-    @PostMapping("/eliminarTelefonoPersona")
-    public TelefonoPersona eliminarTelefonoPersona(@RequestParam String telefono) {
-        return personaService.eliminarTelefonoPersona(telefono);
-    }
-
     @PostMapping("/eliminarContactoEmergencia")
     public ResponseEntity<?> eliminarContactoEmergencia(@RequestBody Map<String, Integer> body) {
-        if (personaService.eliminarContactoEmergencia((Integer) body.get("idPaciente"), (Integer) body.get("idContacto"))) 
+        if (personaService.eliminarContactoEmergencia((Integer) body.get("idPaciente"),
+                (Integer) body.get("idContacto")))
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
     }
 
+    @PostMapping("/eliminarAntecedenteFamiliar")
+    public ResponseEntity<?> eliminarAntecedenteFamiliar(@RequestBody Map<String, Integer> body) {
+        if (personaService.eliminarAntecedenteFamiliar((Integer) body.get("idPaciente"),
+                (Integer) body.get("idAntecedente")))
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+    }
 
-    
+    @PostMapping("/actualizarCorreo")
+    public ResponseEntity<?> actualizarCorreo(@RequestBody Map<String, String> body) {
+        int idPersona = Integer.parseInt(body.get("idPersona"));
+        String correoNuevo = body.get("correoNuevo");
+        String correoAntiguo = body.get("correoAntiguo");
+        Estado estado = Estado.valueOf(body.get("estado"));
+
+        if (personaService.actualizarCorreo(correoNuevo, correoAntiguo, idPersona, estado))
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+    }
+
+    @PostMapping("/actualizarTelefono")
+    public ResponseEntity<?> actualizarTelefono(@RequestBody Map<String, String> body) {
+        int idPersona = Integer.parseInt(body.get("idPersona"));
+        String telefonoNuevo = body.get("telefonoNuevo");
+        String telefonoViejo = body.get("telefonoViejo");
+        Estado estado = Estado.valueOf(body.get("estado"));
+
+        if (personaService.actualizarTelefono(telefonoNuevo, telefonoViejo, idPersona, estado))
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+    }
+
+    @PostMapping("/agregarCorreo")
+    public ResponseEntity<?> agregarCorreo(@RequestBody Map<String, String> body) {
+        Integer idPersona = Integer.parseInt(body.get("idPersona"));
+        String correo = body.get("correo");
+        if (personaService.agregarCorreo(idPersona, correo))
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+    }
+
+    @PostMapping("/agregarTelefono")
+    public ResponseEntity<?> agregarTelefono(@RequestBody Map<String, String> body) {
+        Integer idPersona = Integer.parseInt(body.get("idPersona"));
+        String telefono = body.get("telefono");
+        if (personaService.agregarTelefono(idPersona, telefono))
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+    }
+
+    @PostMapping("/agregarAntecedente")
+    public ResponseEntity<?> agregarAntecedente(@RequestBody DTOAntecedentesFamiliares antecedente)
+            throws RuntimeException {
+        try {
+            personaService.agregarAntecedente(antecedente);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+        }
+    }
+
+    @PostMapping("/agregarContacto")
+    public ResponseEntity<?> agregarContacto(@RequestBody DTOContactosEmergencia contacto)
+            throws RuntimeException {
+        try {
+            personaService.agregarContacto(contacto);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+
+        }
+
+    }
+
 }

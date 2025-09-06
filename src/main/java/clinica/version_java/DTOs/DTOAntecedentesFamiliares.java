@@ -15,7 +15,7 @@ import lombok.ToString;
 public class DTOAntecedentesFamiliares extends DTOPersonaBase {
 
     private String antecedente;
-
+    private int idPersona;
     public DTOAntecedentesFamiliares(DTOPersona dto, String antecedente) {
         super(dto);
         this.antecedente = antecedente;

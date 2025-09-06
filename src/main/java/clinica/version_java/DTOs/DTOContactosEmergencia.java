@@ -18,6 +18,7 @@ import lombok.ToString;
 public class DTOContactosEmergencia extends DTOPersonaBase {
 
     private Relacion relacion;
+    private int idPersona;
     
     public DTOContactosEmergencia(DTOPersona dto, Relacion relacion) {
         super(dto);

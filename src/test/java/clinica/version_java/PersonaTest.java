@@ -7,20 +7,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.data.domain.Page;
-import org.springframework.http.HttpMethod;
+ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.web.client.RestTemplate;
+ import org.springframework.web.client.RestTemplate;
 
-import clinica.version_java.DTOs.DTOPersonaBase;
-import clinica.version_java.DTOs.DTOPersona;
-import clinica.version_java.models.Persona;
-
+ import clinica.version_java.DTOs.DTOPersona;
+ 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PersonaTest {
 
@@ -130,11 +126,7 @@ public class PersonaTest {
 
     @Test
     void debeRetornarPaginacionDTOPersonaBase() {
-        String json = """
-                {
-                    "tipoPersona":"PACIENTE"
-                }
-                """;
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
