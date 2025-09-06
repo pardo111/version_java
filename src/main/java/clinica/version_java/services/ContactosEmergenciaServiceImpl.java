@@ -16,10 +16,13 @@ import clinica.version_java.models.Persona;
 import clinica.version_java.models.enums.Estado;
 import clinica.version_java.repositories.ContactoEmergenciaRepository;
 import clinica.version_java.repositories.PersonaRepository;
+import clinica.version_java.services.interfaces.ContactosEmergenciaService;
+import clinica.version_java.services.interfaces.CorreoPersonaService;
+import clinica.version_java.services.interfaces.TelefonoPersonaService;
 import jakarta.transaction.Transactional;
 
 @Service
-public class ContactosEmergenciaService {
+public class ContactosEmergenciaServiceImpl implements ContactosEmergenciaService{
 
     @Autowired
     PersonaRepository personaRepository;

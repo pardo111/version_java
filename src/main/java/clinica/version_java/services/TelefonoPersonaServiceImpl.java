@@ -12,10 +12,11 @@ import clinica.version_java.models.TelefonoPersona;
 import clinica.version_java.models.enums.Estado;
 import clinica.version_java.repositories.PersonaRepository;
 import clinica.version_java.repositories.TelefonoPersonaRepository;
+import clinica.version_java.services.interfaces.TelefonoPersonaService;
 import jakarta.transaction.Transactional;
 
 @Service
-public class TelefonoPersonaService {
+public class TelefonoPersonaServiceImpl implements TelefonoPersonaService {
     @Autowired
     TelefonoPersonaRepository telefonoPersonaRepository;
     @Autowired

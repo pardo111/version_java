@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import clinica.version_java.models.enums.Estado;
-import clinica.version_java.services.TelefonoPersonaService;
+import clinica.version_java.services.interfaces.TelefonoPersonaService;
 
 @RestController
 @RequestMapping("/api/v1/telefono")

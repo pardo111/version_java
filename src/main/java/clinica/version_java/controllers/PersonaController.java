@@ -6,7 +6,7 @@ import clinica.version_java.DTOs.DTOPersona;
 import clinica.version_java.DTOs.DTOPersonaBase;
 import clinica.version_java.models.enums.Sexo;
 import clinica.version_java.models.enums.TipoPersona;
-import clinica.version_java.services.PersonaService;
+import clinica.version_java.services.interfaces.PersonaService;
 
 
 import org.springframework.data.domain.Page;

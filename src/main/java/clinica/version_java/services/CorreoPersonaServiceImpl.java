@@ -12,10 +12,11 @@ import clinica.version_java.models.Persona;
 import clinica.version_java.models.enums.Estado;
 import clinica.version_java.repositories.CorreoPersonaRepository;
 import clinica.version_java.repositories.PersonaRepository;
+import clinica.version_java.services.interfaces.CorreoPersonaService;
 import jakarta.transaction.Transactional;
 
 @Service
-public class CorreoPersonaService {
+public class CorreoPersonaServiceImpl implements CorreoPersonaService {
 
     @Autowired
     PersonaRepository personaRepository;

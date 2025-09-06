@@ -18,6 +18,11 @@ import clinica.version_java.repositories.ContactoEmergenciaRepository;
 import clinica.version_java.repositories.CorreoPersonaRepository;
 import clinica.version_java.repositories.PersonaRepository;
 import clinica.version_java.repositories.TelefonoPersonaRepository;
+import clinica.version_java.services.interfaces.AntecedentesFamiliaresService;
+import clinica.version_java.services.interfaces.ContactosEmergenciaService;
+import clinica.version_java.services.interfaces.CorreoPersonaService;
+import clinica.version_java.services.interfaces.PersonaService;
+import clinica.version_java.services.interfaces.TelefonoPersonaService;
 import jakarta.transaction.Transactional;
 
 /**
@@ -31,7 +36,7 @@ import jakarta.transaction.Transactional;
  * </p>
  */
 @Service
-public class PersonaService {
+public class PersonaServiceImpl implements PersonaService {
     @Autowired
     PersonaRepository personaRepository;
     @Autowired

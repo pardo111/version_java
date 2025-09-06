@@ -15,10 +15,13 @@ import clinica.version_java.models.Persona;
 import clinica.version_java.models.enums.Estado;
 import clinica.version_java.repositories.AntecedentesFamiliaresRepository;
 import clinica.version_java.repositories.PersonaRepository;
+import clinica.version_java.services.interfaces.AntecedentesFamiliaresService;
+import clinica.version_java.services.interfaces.CorreoPersonaService;
+import clinica.version_java.services.interfaces.TelefonoPersonaService;
 import jakarta.transaction.Transactional;
 
 @Service
-public class AntecedentesFamiliaresService {
+public class AntecedentesFamiliaresServiceImpl implements AntecedentesFamiliaresService {
 
     @Autowired
     AntecedentesFamiliaresRepository antecedentesFamiliaresRepository;
@@ -70,9 +73,6 @@ public class AntecedentesFamiliaresService {
 
     }
 
-
-    
-
     public void guardarInformacionPersonaRelacionada(Persona persona,
             List<DTOAntecedentesFamiliares> antecedentesFamiliares)
             throws Exception {
@@ -91,7 +91,8 @@ public class AntecedentesFamiliaresService {
 
                 telefonoPersonaService.guardarTelefonos(personasGuardadas.get(i),
                         antecedentesFamiliares.get(i).getTelefonos());
-                correoPersonaService.guardarCorreos(personasGuardadas.get(i), antecedentesFamiliares.get(i).getCorreos());
+                correoPersonaService.guardarCorreos(personasGuardadas.get(i),
+                        antecedentesFamiliares.get(i).getCorreos());
                 if (!antecedentesFamiliaresRepository.existsByPacienteAndFamiliarAndEstado(persona,
                         personasGuardadas.get(i), Estado.ACTIVO))
                     antecedentesGuardados

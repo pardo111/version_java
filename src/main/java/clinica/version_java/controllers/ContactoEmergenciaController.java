@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import clinica.version_java.DTOs.DTOContactosEmergencia;
-import clinica.version_java.services.ContactosEmergenciaService;
+import clinica.version_java.services.interfaces.ContactosEmergenciaService;;
 
 @RestController
 @RequestMapping("api/v1/contactoEmergencia")

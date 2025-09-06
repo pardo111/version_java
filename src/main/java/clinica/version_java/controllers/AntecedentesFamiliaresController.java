@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import clinica.version_java.DTOs.DTOAntecedentesFamiliares;
-import clinica.version_java.services.AntecedentesFamiliaresService;
+import clinica.version_java.services.interfaces.AntecedentesFamiliaresService;;
 
 @RestController
 @RequestMapping("/api/v1/antecedentesFamiliares")
