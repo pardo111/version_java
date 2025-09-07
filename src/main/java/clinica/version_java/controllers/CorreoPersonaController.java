@@ -22,7 +22,7 @@ public class CorreoPersonaController {
     @Autowired
     CorreoPersonaService correoPersonaService;
 
-    @PutMapping("/actualizarCorreo")
+    @PutMapping("/actualizarCorreo") 
     public ResponseEntity<?> actualizarCorreo(@RequestBody Map<String, String> body) {
         int idPersona = Integer.parseInt(body.get("idPersona"));
         String correoNuevo = body.get("correoNuevo");
