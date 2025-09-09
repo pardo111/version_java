@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: version_java
+  datasource:
+    url: jdbc:mysql://localhost:3306/version_java
+    username: root
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+logging:
+  file:
+    name: app.log
+    path: logs
+
+jwt:
+    Clave: "C5/%7wL,3uaB5XR!]Dvx-8n!!}iHNjGD"
+    Expira: 3600000

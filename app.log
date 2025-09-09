@@ -1,24 +1,22 @@
-2025-09-06T01:13:53.654-06:00  INFO 10620 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : Starting VersionJavaApplication using Java 22 with PID 10620 (C:\Users\DELL\Desktop\clinica\version_java\build\classes\java\main started by DELL in C:\Users\DELL\Desktop\clinica\version_java)
-2025-09-06T01:13:53.658-06:00  INFO 10620 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : No active profile set, falling back to 1 default profile: "default"
-2025-09-06T01:13:53.738-06:00  INFO 10620 --- [version_java] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-09-06T01:13:53.738-06:00  INFO 10620 --- [version_java] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-09-06T01:13:54.980-06:00  INFO 10620 --- [version_java] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-09-06T01:13:55.162-06:00  INFO 10620 --- [version_java] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 166 ms. Found 7 JPA repository interfaces.
-2025-09-06T01:13:55.839-06:00  INFO 10620 --- [version_java] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-09-06T01:13:55.855-06:00  INFO 10620 --- [version_java] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-09-06T01:13:55.855-06:00  INFO 10620 --- [version_java] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-2025-09-06T01:13:55.902-06:00  INFO 10620 --- [version_java] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-09-06T01:13:55.902-06:00  INFO 10620 --- [version_java] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2164 ms
-2025-09-06T01:13:56.139-06:00  INFO 10620 --- [version_java] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-09-06T01:13:56.209-06:00  INFO 10620 --- [version_java] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
-2025-09-06T01:13:56.254-06:00  INFO 10620 --- [version_java] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-09-06T01:13:56.648-06:00  INFO 10620 --- [version_java] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-09-06T01:13:56.697-06:00  INFO 10620 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-09-06T01:13:56.950-06:00  INFO 10620 --- [version_java] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e4bf22a
-2025-09-06T01:13:56.953-06:00  INFO 10620 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-09-06T01:13:56.991-06:00  WARN 10620 --- [version_java] [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
-2025-09-06T01:13:56.991-06:00  WARN 10620 --- [version_java] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-09-06T01:13:57.024-06:00  INFO 10620 --- [version_java] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-09-07T01:40:28.718-06:00  INFO 15912 --- [version_java] [Test worker] clinica.version_java.PersonaTest         : Starting PersonaTest using Java 22 with PID 15912 (started by DELL in C:\Users\DELL\Desktop\clinica\version_java)
+2025-09-07T01:40:28.721-06:00  INFO 15912 --- [version_java] [Test worker] clinica.version_java.PersonaTest         : No active profile set, falling back to 1 default profile: "default"
+2025-09-07T01:40:32.231-06:00  INFO 15912 --- [version_java] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-07T01:40:32.846-06:00  INFO 15912 --- [version_java] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 553 ms. Found 7 JPA repository interfaces.
+2025-09-07T01:40:37.569-06:00  INFO 15912 --- [version_java] [Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-09-07T01:40:37.624-06:00  INFO 15912 --- [version_java] [Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-07T01:40:37.628-06:00  INFO 15912 --- [version_java] [Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-09-07T01:40:37.982-06:00  INFO 15912 --- [version_java] [Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-07T01:40:37.983-06:00  INFO 15912 --- [version_java] [Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 9167 ms
+2025-09-07T01:40:39.836-06:00  INFO 15912 --- [version_java] [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-07T01:40:40.218-06:00  INFO 15912 --- [version_java] [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-09-07T01:40:40.371-06:00  INFO 15912 --- [version_java] [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-07T01:40:41.482-06:00  INFO 15912 --- [version_java] [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-07T01:40:41.586-06:00  INFO 15912 --- [version_java] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-07T01:40:42.091-06:00  INFO 15912 --- [version_java] [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@450f0d89
+2025-09-07T01:40:42.097-06:00  INFO 15912 --- [version_java] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-07T01:40:42.222-06:00  WARN 15912 --- [version_java] [Test worker] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-09-07T01:40:42.232-06:00  WARN 15912 --- [version_java] [Test worker] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-07T01:40:42.285-06:00  INFO 15912 --- [version_java] [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 5.5.5
@@ -26,62 +24,245 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-09-06T01:13:58.578-06:00  INFO 10620 --- [version_java] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-09-06T01:13:59.938-06:00  INFO 10620 --- [version_java] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-09-06T01:14:00.272-06:00  INFO 10620 --- [version_java] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-09-06T01:14:01.481-06:00  WARN 10620 --- [version_java] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'antecedentesFamiliaresController': Unsatisfied dependency expressed through field 'antecedentesFamiliaresService': Error creating bean with name 'antecedentesFamiliaresService': Unsatisfied dependency expressed through field 'telefonoPersonaService': Error creating bean with name 'telefonoPersonaService': Unsatisfied dependency expressed through field 'personaService': Error creating bean with name 'personaService': Unsatisfied dependency expressed through field 'telefonoPersonaService': Error creating bean with name 'telefonoPersonaService': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-2025-09-06T01:14:01.481-06:00  INFO 10620 --- [version_java] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-09-06T01:14:01.481-06:00  INFO 10620 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-09-06T01:14:01.497-06:00  INFO 10620 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-09-06T01:14:01.497-06:00  INFO 10620 --- [version_java] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-09-06T01:14:01.512-06:00  INFO 10620 --- [version_java] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+2025-09-07T01:40:44.983-06:00  INFO 15912 --- [version_java] [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-07T01:40:45.306-06:00  INFO 15912 --- [version_java] [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-07T01:40:46.205-06:00  INFO 15912 --- [version_java] [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-09-07T01:40:51.722-06:00  WARN 15912 --- [version_java] [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-07T01:40:51.932-06:00  INFO 15912 --- [version_java] [Test worker] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-09-07T01:40:53.600-06:00  WARN 15912 --- [version_java] [Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 19de4063-f84e-4259-aceb-079b28e3a8d7
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-09-07T01:40:53.621-06:00  INFO 15912 --- [version_java] [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-09-07T01:40:54.257-06:00  INFO 15912 --- [version_java] [Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 50921 (http) with context path '/'
+2025-09-07T01:40:54.282-06:00  INFO 15912 --- [version_java] [Test worker] clinica.version_java.PersonaTest         : Started PersonaTest in 27.692 seconds (process running for 34.553)
+2025-09-07T01:40:55.187-06:00  INFO 15912 --- [version_java] [http-nio-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-07T01:40:55.188-06:00  INFO 15912 --- [version_java] [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-09-07T01:40:55.190-06:00  INFO 15912 --- [version_java] [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-09-07T01:40:55.505-06:00  INFO 15912 --- [version_java] [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [clinica.version_java.VersionJavaApplicationTests]: VersionJavaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-09-07T01:40:55.510-06:00  INFO 15912 --- [version_java] [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration clinica.version_java.VersionJavaApplication for test class clinica.version_java.VersionJavaApplicationTests
+2025-09-07T01:40:55.720-06:00  INFO 15912 --- [version_java] [Test worker] c.v.VersionJavaApplicationTests          : Starting VersionJavaApplicationTests using Java 22 with PID 15912 (started by DELL in C:\Users\DELL\Desktop\clinica\version_java)
+2025-09-07T01:40:55.720-06:00  INFO 15912 --- [version_java] [Test worker] c.v.VersionJavaApplicationTests          : No active profile set, falling back to 1 default profile: "default"
+2025-09-07T01:40:56.354-06:00  INFO 15912 --- [version_java] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-07T01:40:56.420-06:00  INFO 15912 --- [version_java] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 7 JPA repository interfaces.
+2025-09-07T01:40:56.641-06:00  INFO 15912 --- [version_java] [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-07T01:40:56.651-06:00  INFO 15912 --- [version_java] [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-07T01:40:56.680-06:00  INFO 15912 --- [version_java] [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-07T01:40:56.688-06:00  INFO 15912 --- [version_java] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-09-07T01:40:56.694-06:00  INFO 15912 --- [version_java] [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ca5eb61
+2025-09-07T01:40:56.695-06:00  INFO 15912 --- [version_java] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-09-07T01:40:56.700-06:00  WARN 15912 --- [version_java] [Test worker] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-09-07T01:40:56.702-06:00  WARN 15912 --- [version_java] [Test worker] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-07T01:40:56.702-06:00  INFO 15912 --- [version_java] [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 5.5.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-09-07T01:40:57.132-06:00  INFO 15912 --- [version_java] [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-07T01:40:57.279-06:00  INFO 15912 --- [version_java] [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-07T01:40:57.815-06:00  WARN 15912 --- [version_java] [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-07T01:40:57.870-06:00  INFO 15912 --- [version_java] [Test worker] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-09-07T01:40:58.388-06:00  WARN 15912 --- [version_java] [Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: a7976ed5-4c8f-4708-88a5-a99f0da6b4d3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-09-07T01:40:58.392-06:00  INFO 15912 --- [version_java] [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-09-07T01:40:58.479-06:00  INFO 15912 --- [version_java] [Test worker] c.v.VersionJavaApplicationTests          : Started VersionJavaApplicationTests in 2.927 seconds (process running for 38.75)
+2025-09-07T01:40:58.526-06:00  INFO 15912 --- [version_java] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-09-07T01:40:58.535-06:00  INFO 15912 --- [version_java] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-09-07T01:40:58.542-06:00  INFO 15912 --- [version_java] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-09-07T01:40:58.545-06:00  INFO 15912 --- [version_java] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-09-07T01:40:58.561-06:00  INFO 15912 --- [version_java] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-09-07T01:40:58.589-06:00  INFO 15912 --- [version_java] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-09-07T01:40:58.591-06:00  INFO 15912 --- [version_java] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-09-07T01:40:58.599-06:00  INFO 15912 --- [version_java] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-09-07T01:42:14.830-06:00  INFO 14592 --- [version_java] [Test worker] c.v.VersionJavaApplicationTests          : Starting VersionJavaApplicationTests using Java 22 with PID 14592 (started by DELL in C:\Users\DELL\Desktop\clinica\version_java)
+2025-09-07T01:42:14.833-06:00  INFO 14592 --- [version_java] [Test worker] c.v.VersionJavaApplicationTests          : No active profile set, falling back to 1 default profile: "default"
+2025-09-07T01:42:17.069-06:00  INFO 14592 --- [version_java] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-07T01:42:17.345-06:00  INFO 14592 --- [version_java] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 250 ms. Found 7 JPA repository interfaces.
+2025-09-07T01:42:19.346-06:00  INFO 14592 --- [version_java] [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-07T01:42:19.514-06:00  INFO 14592 --- [version_java] [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-09-07T01:42:19.632-06:00  INFO 14592 --- [version_java] [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-07T01:42:20.547-06:00  INFO 14592 --- [version_java] [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-07T01:42:20.662-06:00  INFO 14592 --- [version_java] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-07T01:42:21.112-06:00  INFO 14592 --- [version_java] [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ec92631
+2025-09-07T01:42:21.117-06:00  INFO 14592 --- [version_java] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-07T01:42:21.218-06:00  WARN 14592 --- [version_java] [Test worker] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-09-07T01:42:21.255-06:00  WARN 14592 --- [version_java] [Test worker] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-07T01:42:21.304-06:00  INFO 14592 --- [version_java] [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.5.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-09-07T01:42:23.870-06:00  INFO 14592 --- [version_java] [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-07T01:42:24.139-06:00  INFO 14592 --- [version_java] [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-07T01:42:24.869-06:00  INFO 14592 --- [version_java] [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-09-07T01:42:27.166-06:00  WARN 14592 --- [version_java] [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-07T01:42:27.296-06:00  INFO 14592 --- [version_java] [Test worker] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-09-07T01:42:29.192-06:00  WARN 14592 --- [version_java] [Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e95a4b13-154e-47cd-b3cf-fd4722a5283a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-09-07T01:42:29.210-06:00  INFO 14592 --- [version_java] [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-09-07T01:42:29.557-06:00  INFO 14592 --- [version_java] [Test worker] c.v.VersionJavaApplicationTests          : Started VersionJavaApplicationTests in 15.732 seconds (process running for 20.567)
+2025-09-07T01:42:30.436-06:00  INFO 14592 --- [version_java] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-09-07T01:42:30.441-06:00  INFO 14592 --- [version_java] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-09-07T01:42:30.455-06:00  INFO 14592 --- [version_java] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-09-07T03:07:17.751-06:00  INFO 15504 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : Starting VersionJavaApplication using Java 22 with PID 15504 (C:\Users\DELL\Desktop\clinica\version_java\build\classes\java\main started by DELL in C:\Users\DELL\Desktop\clinica\version_java)
+2025-09-07T03:07:17.753-06:00  INFO 15504 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-09-07T03:07:17.819-06:00  INFO 15504 --- [version_java] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-09-07T03:07:17.820-06:00  INFO 15504 --- [version_java] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-09-07T03:07:19.027-06:00  INFO 15504 --- [version_java] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-07T03:07:19.162-06:00  INFO 15504 --- [version_java] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 123 ms. Found 8 JPA repository interfaces.
+2025-09-07T03:07:19.882-06:00  INFO 15504 --- [version_java] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-09-07T03:07:19.901-06:00  INFO 15504 --- [version_java] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-07T03:07:19.901-06:00  INFO 15504 --- [version_java] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-09-07T03:07:19.963-06:00  INFO 15504 --- [version_java] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-07T03:07:19.964-06:00  INFO 15504 --- [version_java] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2144 ms
+2025-09-07T03:07:20.132-06:00  INFO 15504 --- [version_java] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-07T03:07:20.187-06:00  INFO 15504 --- [version_java] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-09-07T03:07:20.225-06:00  INFO 15504 --- [version_java] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-07T03:07:20.610-06:00  INFO 15504 --- [version_java] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-07T03:07:20.643-06:00  INFO 15504 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-07T03:07:20.839-06:00  INFO 15504 --- [version_java] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1d1430ae
+2025-09-07T03:07:20.843-06:00  INFO 15504 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-07T03:07:20.890-06:00  WARN 15504 --- [version_java] [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-09-07T03:07:20.895-06:00  WARN 15504 --- [version_java] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-07T03:07:20.916-06:00  INFO 15504 --- [version_java] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.5.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-09-07T03:07:22.305-06:00  INFO 15504 --- [version_java] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-07T03:07:22.587-06:00  INFO 15504 --- [version_java] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-07T03:07:23.054-06:00  INFO 15504 --- [version_java] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-09-07T03:07:23.808-06:00  INFO 15504 --- [version_java] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-09-07T03:07:23.988-06:00  WARN 15504 --- [version_java] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-07T03:07:24.337-06:00  INFO 15504 --- [version_java] [restartedMain] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-09-07T03:07:24.661-06:00  WARN 15504 --- [version_java] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springSecurityFilterChain': Cannot create inner bean '(inner bean)#67806554' of type [org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy] while setting constructor argument with key [1]
+2025-09-07T03:07:24.664-06:00  INFO 15504 --- [version_java] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-09-07T03:07:24.668-06:00  INFO 15504 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-09-07T03:07:24.677-06:00  INFO 15504 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-09-07T03:07:24.681-06:00  INFO 15504 --- [version_java] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-09-07T03:07:24.700-06:00  INFO 15504 --- [version_java] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-09-06T01:14:01.558-06:00 ERROR 10620 --- [version_java] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+2025-09-07T03:07:24.726-06:00 ERROR 15504 --- [version_java] [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-***************************
-APPLICATION FAILED TO START
-***************************
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springSecurityFilterChain': Cannot create inner bean '(inner bean)#67806554' of type [org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy] while setting constructor argument with key [1]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanValue(BeanDefinitionValueResolver.java:421) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.lambda$resolveValueIfNecessary$1(BeanDefinitionValueResolver.java:153) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:262) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:152) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveManagedList(BeanDefinitionValueResolver.java:460) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:191) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:691) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:206) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.4.jar:3.5.4]
+	at clinica.version_java.VersionJavaApplication.main(VersionJavaApplication.java:10) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.4.jar:3.5.4]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#67806554': Cannot create inner bean '(inner bean)#6a09292e' while setting constructor argument with key [1]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanValue(BeanDefinitionValueResolver.java:421) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.lambda$resolveValueIfNecessary$1(BeanDefinitionValueResolver.java:153) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:262) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:152) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveManagedList(BeanDefinitionValueResolver.java:460) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:191) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:691) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:206) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanValue(BeanDefinitionValueResolver.java:407) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 32 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#6a09292e' defined in class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class]: Failed to instantiate [jakarta.servlet.Filter]: Factory method 'springSecurityFilterChain' threw exception with message: A filter chain that matches any request [DefaultSecurityFilterChain defined as 'securityFilterChain' in [class path resource [clinica/version_java/config/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization]] has already been configured, which means that this filter chain [DefaultSecurityFilterChain defined as 'filterChain' in [class path resource [clinica/version_java/config/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization]] will never get invoked. Please use `HttpSecurity#securityMatcher` to ensure that there is only one filter chain configured for 'any request' and that the 'any request' filter chain is published last.
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanValue(BeanDefinitionValueResolver.java:407) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 44 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [jakarta.servlet.Filter]: Factory method 'springSecurityFilterChain' threw exception with message: A filter chain that matches any request [DefaultSecurityFilterChain defined as 'securityFilterChain' in [class path resource [clinica/version_java/config/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization]] has already been configured, which means that this filter chain [DefaultSecurityFilterChain defined as 'filterChain' in [class path resource [clinica/version_java/config/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization]] will never get invoked. Please use `HttpSecurity#securityMatcher` to ensure that there is only one filter chain configured for 'any request' and that the 'any request' filter chain is published last.
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 50 common frames omitted
+Caused by: org.springframework.security.web.UnreachableFilterChainException: A filter chain that matches any request [DefaultSecurityFilterChain defined as 'securityFilterChain' in [class path resource [clinica/version_java/config/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization]] has already been configured, which means that this filter chain [DefaultSecurityFilterChain defined as 'filterChain' in [class path resource [clinica/version_java/config/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization]] will never get invoked. Please use `HttpSecurity#securityMatcher` to ensure that there is only one filter chain configured for 'any request' and that the 'any request' filter chain is published last.
+	at org.springframework.security.config.annotation.web.builders.WebSecurityFilterChainValidator.checkForAnyRequestRequestMatcher(WebSecurityFilterChainValidator.java:59) ~[spring-security-config-6.5.2.jar:6.5.2]
+	at org.springframework.security.config.annotation.web.builders.WebSecurityFilterChainValidator.validate(WebSecurityFilterChainValidator.java:47) ~[spring-security-config-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.FilterChainProxy.afterPropertiesSet(FilterChainProxy.java:178) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.config.annotation.web.builders.WebSecurity.performBuild(WebSecurity.java:351) ~[spring-security-config-6.5.2.jar:6.5.2]
+	at org.springframework.security.config.annotation.web.builders.WebSecurity.performBuild(WebSecurity.java:98) ~[spring-security-config-6.5.2.jar:6.5.2]
+	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.doBuild(AbstractConfiguredSecurityBuilder.java:355) ~[spring-security-config-6.5.2.jar:6.5.2]
+	at org.springframework.security.config.annotation.AbstractSecurityBuilder.build(AbstractSecurityBuilder.java:38) ~[spring-security-config-6.5.2.jar:6.5.2]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration.springSecurityFilterChain(WebSecurityConfiguration.java:132) ~[spring-security-config-6.5.2.jar:6.5.2]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 53 common frames omitted
 
-Description:
-
-The dependencies of some of the beans in the application context form a cycle:
-
-   antecedentesFamiliaresController (field clinica.version_java.services.AntecedentesFamiliaresService clinica.version_java.controllers.AntecedentesFamiliaresController.antecedentesFamiliaresService)
-      ↓
-   antecedentesFamiliaresService (field clinica.version_java.services.TelefonoPersonaService clinica.version_java.services.AntecedentesFamiliaresService.telefonoPersonaService)
-┌─────┐
-|  telefonoPersonaService (field clinica.version_java.services.PersonaService clinica.version_java.services.TelefonoPersonaService.personaService)
-↑     ↓
-|  personaService (field clinica.version_java.services.TelefonoPersonaService clinica.version_java.services.PersonaService.telefonoPersonaService)
-└─────┘
-
-
-Action:
-
-Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
-
-2025-09-06T01:17:05.176-06:00  INFO 18068 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : Starting VersionJavaApplication using Java 22 with PID 18068 (C:\Users\DELL\Desktop\clinica\version_java\build\classes\java\main started by DELL in C:\Users\DELL\Desktop\clinica\version_java)
-2025-09-06T01:17:05.176-06:00  INFO 18068 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : No active profile set, falling back to 1 default profile: "default"
-2025-09-06T01:17:05.284-06:00  INFO 18068 --- [version_java] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-09-06T01:17:05.284-06:00  INFO 18068 --- [version_java] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-09-06T01:17:06.773-06:00  INFO 18068 --- [version_java] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-09-06T01:17:06.891-06:00  INFO 18068 --- [version_java] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 115 ms. Found 7 JPA repository interfaces.
-2025-09-06T01:17:07.775-06:00  INFO 18068 --- [version_java] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-09-06T01:17:07.806-06:00  INFO 18068 --- [version_java] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-09-06T01:17:07.808-06:00  INFO 18068 --- [version_java] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-2025-09-06T01:17:07.886-06:00  INFO 18068 --- [version_java] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-09-06T01:17:07.887-06:00  INFO 18068 --- [version_java] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2602 ms
-2025-09-06T01:17:08.119-06:00  INFO 18068 --- [version_java] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-09-06T01:17:08.192-06:00  INFO 18068 --- [version_java] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
-2025-09-06T01:17:08.226-06:00  INFO 18068 --- [version_java] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-09-06T01:17:08.723-06:00  INFO 18068 --- [version_java] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-09-06T01:17:08.806-06:00  INFO 18068 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-09-06T01:17:09.132-06:00  INFO 18068 --- [version_java] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4b82bbd2
-2025-09-06T01:17:09.148-06:00  INFO 18068 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-09-06T01:17:09.195-06:00  WARN 18068 --- [version_java] [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
-2025-09-06T01:17:09.195-06:00  WARN 18068 --- [version_java] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-09-06T01:17:09.210-06:00  INFO 18068 --- [version_java] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-09-07T03:11:27.539-06:00  INFO 16424 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : Starting VersionJavaApplication using Java 22 with PID 16424 (C:\Users\DELL\Desktop\clinica\version_java\build\classes\java\main started by DELL in C:\Users\DELL\Desktop\clinica\version_java)
+2025-09-07T03:11:27.542-06:00  INFO 16424 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-09-07T03:11:27.664-06:00  INFO 16424 --- [version_java] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-09-07T03:11:27.664-06:00  INFO 16424 --- [version_java] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-09-07T03:11:29.661-06:00  INFO 16424 --- [version_java] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-07T03:11:29.861-06:00  INFO 16424 --- [version_java] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 185 ms. Found 8 JPA repository interfaces.
+2025-09-07T03:11:31.430-06:00  INFO 16424 --- [version_java] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-09-07T03:11:31.509-06:00  INFO 16424 --- [version_java] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-07T03:11:31.510-06:00  INFO 16424 --- [version_java] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-09-07T03:11:31.691-06:00  INFO 16424 --- [version_java] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-07T03:11:31.691-06:00  INFO 16424 --- [version_java] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4026 ms
+2025-09-07T03:11:32.382-06:00  INFO 16424 --- [version_java] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-07T03:11:32.470-06:00  INFO 16424 --- [version_java] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-09-07T03:11:32.515-06:00  INFO 16424 --- [version_java] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-07T03:11:33.253-06:00  INFO 16424 --- [version_java] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-07T03:11:33.295-06:00  INFO 16424 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-07T03:11:33.546-06:00  INFO 16424 --- [version_java] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@651c0394
+2025-09-07T03:11:33.549-06:00  INFO 16424 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-07T03:11:33.614-06:00  WARN 16424 --- [version_java] [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-09-07T03:11:33.632-06:00  WARN 16424 --- [version_java] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-07T03:11:33.661-06:00  INFO 16424 --- [version_java] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 5.5.5
@@ -89,77 +270,12 @@ Relying upon circular references is discouraged and they are prohibited by defau
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-09-06T01:17:11.844-06:00  INFO 18068 --- [version_java] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-09-06T01:17:12.042-06:00  INFO 18068 --- [version_java] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-09-06T01:17:13.035-06:00  INFO 18068 --- [version_java] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-09-06T01:17:15.512-06:00  WARN 18068 --- [version_java] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-09-06T01:17:15.596-06:00  INFO 18068 --- [version_java] [restartedMain] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
-2025-09-06T01:17:16.164-06:00  INFO 18068 --- [version_java] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-09-06T01:17:16.242-06:00  INFO 18068 --- [version_java] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-09-06T01:17:16.260-06:00  INFO 18068 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : Started VersionJavaApplication in 11.907 seconds (process running for 13.482)
-2025-09-06T01:17:24.367-06:00  INFO 18068 --- [version_java] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-09-06T01:17:24.367-06:00  INFO 18068 --- [version_java] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-09-06T01:17:24.367-06:00  INFO 18068 --- [version_java] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-09-06T01:17:44.469-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
-2025-09-06T01:18:31.542-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-5] org.hibernate.orm.query                  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2025-09-06T01:18:31.625-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-5] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
-	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
-	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
-
-2025-09-06T01:19:14.526-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-6] org.hibernate.orm.query                  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2025-09-06T01:21:28.173-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-9] org.hibernate.orm.query                  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2025-09-06T01:21:39.854-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-10] org.hibernate.orm.query                  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2025-09-06T01:21:46.393-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-1] org.hibernate.orm.query                  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2025-09-06T01:23:23.308-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-9] org.hibernate.orm.query                  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2025-09-06T01:24:07.752-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
-2025-09-06T01:25:05.831-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-6] org.hibernate.orm.query                  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2025-09-06T01:25:30.328-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-8] org.hibernate.orm.query                  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2025-09-06T01:26:13.647-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1062, SQLState: 23000
-2025-09-06T01:26:13.648-06:00 ERROR 18068 --- [version_java] [http-nio-8080-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry '10' for key 'UKa66cj8ltrlbubugjhonr5jqse'
-2025-09-06T01:26:30.787-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1062, SQLState: 23000
-2025-09-06T01:26:30.788-06:00 ERROR 18068 --- [version_java] [http-nio-8080-exec-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry 'correa@gmail.com' for key 'UKgsha89h9joghxi81lbr9cfwnm'
-2025-09-06T01:26:53.179-06:00  WARN 18068 --- [version_java] [http-nio-8080-exec-4] org.hibernate.orm.query                  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2025-09-06T01:33:18.756-06:00  INFO 7452 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : Starting VersionJavaApplication using Java 22 with PID 7452 (C:\Users\DELL\Desktop\clinica\version_java\build\classes\java\main started by DELL in C:\Users\DELL\Desktop\clinica\version_java)
-2025-09-06T01:33:18.756-06:00  INFO 7452 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : No active profile set, falling back to 1 default profile: "default"
-2025-09-06T01:33:18.827-06:00  INFO 7452 --- [version_java] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-09-06T01:33:18.827-06:00  INFO 7452 --- [version_java] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-09-06T01:33:19.946-06:00  INFO 7452 --- [version_java] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-09-06T01:33:20.044-06:00  INFO 7452 --- [version_java] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 7 JPA repository interfaces.
-2025-09-06T01:33:20.806-06:00  INFO 7452 --- [version_java] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-09-06T01:33:20.833-06:00  INFO 7452 --- [version_java] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-09-06T01:33:20.833-06:00  INFO 7452 --- [version_java] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-2025-09-06T01:33:20.896-06:00  INFO 7452 --- [version_java] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-09-06T01:33:20.897-06:00  INFO 7452 --- [version_java] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2070 ms
-2025-09-06T01:33:21.072-06:00  INFO 7452 --- [version_java] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-09-06T01:33:21.132-06:00  INFO 7452 --- [version_java] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
-2025-09-06T01:33:21.172-06:00  INFO 7452 --- [version_java] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-09-06T01:33:21.522-06:00  INFO 7452 --- [version_java] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-09-06T01:33:21.539-06:00  INFO 7452 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-09-06T01:33:21.740-06:00  INFO 7452 --- [version_java] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@50cb2fd5
-2025-09-06T01:33:21.740-06:00  INFO 7452 --- [version_java] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-09-06T01:33:21.772-06:00  WARN 7452 --- [version_java] [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
-2025-09-06T01:33:21.789-06:00  WARN 7452 --- [version_java] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-09-06T01:33:21.805-06:00  INFO 7452 --- [version_java] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 5.5.5
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-09-06T01:33:23.032-06:00  INFO 7452 --- [version_java] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-09-06T01:33:24.157-06:00  INFO 7452 --- [version_java] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-09-06T01:33:24.546-06:00  INFO 7452 --- [version_java] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-09-06T01:33:25.606-06:00  WARN 7452 --- [version_java] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-09-06T01:33:25.657-06:00  INFO 7452 --- [version_java] [restartedMain] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
-2025-09-06T01:33:26.121-06:00  INFO 7452 --- [version_java] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-09-06T01:33:26.155-06:00  INFO 7452 --- [version_java] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-09-06T01:33:26.155-06:00  INFO 7452 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : Started VersionJavaApplication in 8.101 seconds (process running for 8.769)
-2025-09-06T01:34:14.301-06:00  INFO 7452 --- [version_java] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-09-06T01:34:14.302-06:00  INFO 7452 --- [version_java] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-09-06T01:34:14.303-06:00  INFO 7452 --- [version_java] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-09-06T01:34:23.235-06:00  WARN 7452 --- [version_java] [http-nio-8080-exec-4] org.hibernate.orm.query                  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2025-09-06T01:34:23.299-06:00  WARN 7452 --- [version_java] [http-nio-8080-exec-4] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
-	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
-	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
-
+2025-09-07T03:11:35.751-06:00  INFO 16424 --- [version_java] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-07T03:11:35.963-06:00  INFO 16424 --- [version_java] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-07T03:11:36.520-06:00  INFO 16424 --- [version_java] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-09-07T03:11:37.657-06:00  INFO 16424 --- [version_java] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-09-07T03:11:38.035-06:00  WARN 16424 --- [version_java] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-07T03:11:38.477-06:00  INFO 16424 --- [version_java] [restartedMain] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-09-07T03:11:38.837-06:00  INFO 16424 --- [version_java] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-09-07T03:11:38.880-06:00  INFO 16424 --- [version_java] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-09-07T03:11:38.891-06:00  INFO 16424 --- [version_java] [restartedMain] c.version_java.VersionJavaApplication    : Started VersionJavaApplication in 13.314 seconds (process running for 14.228)
