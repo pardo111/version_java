@@ -26,7 +26,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/auth/**", "/swagger-ui/**","/v3/api-docs/**","/proxy/**").permitAll()
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/auth/**", "/swagger-ui/**","/v3/api-docs/**","/proxy/**", "/api/v1/usuarios/create").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtFilter,
                         org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class);

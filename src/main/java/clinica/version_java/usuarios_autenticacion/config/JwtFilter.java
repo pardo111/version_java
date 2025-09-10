@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import clinica.version_java.usuarios_autenticacion.services.UserDetailsServiceImpl;
 import clinica.version_java.usuarios_autenticacion.util.JwtUtil;
+import org.springframework.lang.NonNull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 @Component
-public class JwtFilter extends OncePerRequestFilter{
+public class JwtFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;
     private final UserDetailsServiceImpl userDetailsServiceImpl;
@@ -28,8 +29,9 @@ public class JwtFilter extends OncePerRequestFilter{
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
-            FilterChain chain) throws ServletException, IOException {
+    protected void doFilterInternal(@NonNull HttpServletRequest request,
+            @NonNull HttpServletResponse response,
+            @NonNull FilterChain chain) throws ServletException, IOException {
         final String authHeader = request.getHeader("Authorization");
 
         String username = null;

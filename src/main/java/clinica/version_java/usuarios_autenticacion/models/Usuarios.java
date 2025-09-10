@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import clinica.version_java.personas.models.Persona;
 import clinica.version_java.personas.models.enums.Estado;
+import clinica.version_java.usuarios_autenticacion.DTO.DTOUsuarios;
 import clinica.version_java.usuarios_autenticacion.models.enums.Puestos;
 import clinica.version_java.usuarios_autenticacion.models.enums.Roles;
 import jakarta.persistence.Column;
@@ -29,7 +30,7 @@ import lombok.NoArgsConstructor;
 public class Usuarios {
     
     @Id
-    @Column(name = "id_usuario")
+    @Column(name = "id_usuario", unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
     @Column(name = "usuario")
@@ -66,5 +67,11 @@ public class Usuarios {
     }
 
 
+        public Usuarios(DTOUsuarios usuario) {
+        this.usuario = usuario.getUsuario();
+        this.password = usuario.getPassword();
+        this.rol = usuario.getRol();
+        this.puesto = usuario.getPuesto();
+    }
     
 }
