@@ -17,5 +17,5 @@ logging:
     path: logs
 
 jwt:
-    Clave: "C5/%7wL,3uaB5XR!]Dvx-8n!!}iHNjGD"
-    Expira: 3600000
+    clave: "C5/%7wL,3uaB5XR!]Dvx-8n!!}iHNjGD"
+    expira: 3600000

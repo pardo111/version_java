@@ -33,7 +33,7 @@ public class AntecedentesFamiliaresServiceImpl implements AntecedentesFamiliares
     CorreoPersonaService correoPersonaService;
 
     public List<DTOAntecedentesFamiliares> obtenerAntecedentes(int idPaciente) {
-        List<AntecedentesFamiliares> contactos = antecedentesFamiliaresRepository.findContactosByPacienteId(idPaciente);
+        List<AntecedentesFamiliares> contactos = antecedentesFamiliaresRepository.findByPacienteIdPersonaAndEstadoAndFamiliarEstado(idPaciente, Estado.ACTIVO, Estado.ACTIVO);
         return contactos.stream()
                 .map(ce -> new DTOAntecedentesFamiliares(new DTOPersonaBase(ce.getFamiliar()), ce.getAntecedentes()))
                 .toList();

@@ -74,7 +74,7 @@ public class ContactosEmergenciaServiceImpl implements ContactosEmergenciaServic
     }
 
     public List<DTOContactosEmergencia> obtenerContactos(int idPaciente) {
-        List<ContactoEmergencia> contactos = contactoEmergenciaRepository.findContactosByPacienteId(idPaciente);
+        List<ContactoEmergencia> contactos = contactoEmergenciaRepository.findByPacienteIdPersonaAndEstadoAndContactoEstado(idPaciente, Estado.ACTIVO, Estado.ACTIVO);
         return contactos.stream()
                 .map(ce -> new DTOContactosEmergencia(new DTOPersonaBase(ce.getContacto()), ce.getRelacion()))
                 .toList();

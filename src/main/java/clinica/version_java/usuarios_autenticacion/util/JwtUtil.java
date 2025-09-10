@@ -1,37 +1,44 @@
 
 package clinica.version_java.usuarios_autenticacion.util;
 
+import java.security.Key;
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 
 @Component
 public class JwtUtil {
 
-    @Autowired
     private JwtProperties jwtProperties;
-    
-    private String claveSecreta = jwtProperties.getClave();
-    private long expiracion = jwtProperties.getExpira();
+
+    public JwtUtil(JwtProperties jwtProperties) {
+        this.jwtProperties = jwtProperties;
+    }
+
+
+    private Key getSigningKey(){
+        return Keys.hmacShaKeyFor(jwtProperties.getClave().getBytes());
+    }
 
     public String generateToken(String userName) {
         return Jwts.builder()
                 .setSubject(userName)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + expiracion))
-                .signWith(SignatureAlgorithm.HS256, claveSecreta)
+                .setExpiration(new Date(System.currentTimeMillis() + jwtProperties.getExpira()))
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
 
-    public String getUserNameFromToken (String token){
-        return Jwts.parser()
-                .setSigningKey(claveSecreta)
-                .parseClaimsJws(token)
-                .getBody()
-                .getSubject();
+    public String getUserNameFromToken(String token) {
+        return Jwts.parserBuilder()
+                    .setSigningKey(getSigningKey())
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody()
+                    .getSubject();
     }
 }
