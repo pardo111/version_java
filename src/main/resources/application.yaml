@@ -18,4 +18,4 @@ logging:
 
 jwt:
     clave: "C5/%7wL,3uaB5XR!]Dvx-8n!!}iHNjGD"
-    expira: 3600000
+    expira: 600000
