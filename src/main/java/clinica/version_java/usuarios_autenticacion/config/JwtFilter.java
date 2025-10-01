@@ -23,10 +23,9 @@ import org.springframework.web.filter.OncePerRequestFilter;
 public class JwtFilter extends OncePerRequestFilter {
 
     @Autowired
-    private  JwtUtil jwtUtil;
+    private JwtUtil jwtUtil;
     @Autowired
-    private  UserDetailsServiceImpl userDetailsServiceImpl;
-
+    private UserDetailsServiceImpl userDetailsServiceImpl;
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
@@ -36,7 +35,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
         String username = null;
         String token = null;
-
+        // verifica que la cabecera traiga el header
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             token = authHeader.substring(7);
             username = jwtUtil.getUserNameFromToken(token);

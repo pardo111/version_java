@@ -5,10 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import clinica.version_java.usuarios_autenticacion.DTO.request.LoginRequest;
 import clinica.version_java.usuarios_autenticacion.DTO.response.LoginResponse;
-import clinica.version_java.usuarios_autenticacion.util.JwtProperties;
 import clinica.version_java.usuarios_autenticacion.util.JwtUtil;
 
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

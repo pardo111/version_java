@@ -2,6 +2,8 @@ package clinica.version_java.usuarios_autenticacion.models;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import clinica.version_java.usuarios_autenticacion.models.enums.EventoUsuario;
 import jakarta.persistence.*;
 
@@ -26,6 +28,7 @@ public class AuditoriaUsuario {
     @Column(name = "ip")
     private String ip;
 
-    @Column(name = "fecha")
-    private LocalDateTime fecha = LocalDateTime.now();
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime fechaCreacion;
 }

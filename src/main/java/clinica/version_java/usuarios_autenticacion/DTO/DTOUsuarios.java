@@ -9,13 +9,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class DTOUsuarios {
+    private Integer id_usuario;
     private String usuario;
     private String password;
-    private Roles  rol;
+    private Roles rol;
     private Puestos puesto;
     private int idPersona;
 
-    public DTOUsuarios(Usuarios usuarios){
+    public DTOUsuarios(Usuarios usuarios) {
         this.usuario = usuarios.getUsuario();
         this.rol = usuarios.getRol();
         this.puesto = usuarios.getPuesto();
