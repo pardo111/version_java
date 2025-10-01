@@ -12,10 +12,11 @@ import clinica.version_java.personas.repositories.PersonaRepository;
 import clinica.version_java.usuarios_autenticacion.DTO.DTOUsuarios;
 import clinica.version_java.usuarios_autenticacion.models.Usuarios;
 import clinica.version_java.usuarios_autenticacion.repositories.UsuariosRepository;
+import clinica.version_java.usuarios_autenticacion.services.interfaces.UsuarioService;
 import jakarta.transaction.Transactional;
 
 @Service
-public class UsuarioService {
+public class UsuarioServiceImp implements UsuarioService{
     @Autowired
     private UsuariosRepository usuariosRepository;
     @Autowired

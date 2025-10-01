@@ -13,7 +13,7 @@ import clinica.version_java.personas.models.Persona;
 import clinica.version_java.personas.repositories.PersonaRepository;
 import clinica.version_java.usuarios_autenticacion.DTO.DTOUsuarios;
 import clinica.version_java.usuarios_autenticacion.repositories.UsuariosRepository;
-import clinica.version_java.usuarios_autenticacion.services.UsuarioService;
+import clinica.version_java.usuarios_autenticacion.services.interfaces.UsuarioService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,7 +60,6 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-
     
     @PutMapping("/delete")
     public ResponseEntity<?> eliminarUsuario(@RequestBody DTOUsuarios usuario) {
