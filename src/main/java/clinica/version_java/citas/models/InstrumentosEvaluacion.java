@@ -1,6 +1,6 @@
 package clinica.version_java.citas.models;
 
-import clinica.version_java.citas.models.enums.EstadoAnimo;
+import clinica.version_java.citas.models.enums.PruebasPsicometricas;
 import clinica.version_java.personas.models.enums.Estado;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,29 +17,29 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "estado_mental")
+@Table(name= "instrumentos_evaluacion")
 @NoArgsConstructor
-public class EstadoMental {
-    
+public class InstrumentosEvaluacion {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_estado_mental")
+    @Column(name="id_instrumento")
     private int id;
-    @Column(name="apariencia_general", length = 200)
-    private String aparienciaGeneral;
-    @Column(name = "conducta", length =350)
-    private String conducta;
-    @Column(name= "estado_animo")
+    @Column(name="prueba_psicometrica_aplicada")
     @Enumerated(EnumType.STRING)
-    private EstadoAnimo estadoAnimo;
-    @Column(name = "proceso_pensamiento")
-    private String procesoPensamiento;
-    @Column(name = "estado")
+    private PruebasPsicometricas pruebaPsicometricaAplicada;
+    @Column(name="cuestionarios_escala")
+    private String cuestionariosEscala;
+    @Column(name="resultados")
+    private String resultados;
+    @Column(name="estado")
     @Enumerated(EnumType.STRING)
     private Estado estado = Estado.ACTIVO;
 
-
+    
     @ManyToOne
-    @JoinColumn(name="id_cita", referencedColumnName = "id_cita")   
-    private Citas cita;
+    @JoinColumn(name = "id_cita", referencedColumnName = "id_cita")
+    private Citas cita; 
+    
 }

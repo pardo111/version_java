@@ -57,4 +57,10 @@ public class Citas {
 
     @OneToMany(mappedBy = "cita")
     private List<EstadoMental> estadosMentales = new ArrayList<>();
+    @OneToMany(mappedBy = "cita")
+    private List<InstrumentosEvaluacion> instrumentosEvaluacions = new ArrayList<>();
+    @OneToMany(mappedBy = "cita")
+    private List<ObservacionesIniciales> observacionesIniciales = new ArrayList<>();
+    @OneToMany(mappedBy = "cita")
+    private List<DiagnosticoHipotetico> diagnosticoHipoteticos = new ArrayList<>();
 }
