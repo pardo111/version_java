@@ -40,7 +40,8 @@ public class Citas {
     private Estado estado = Estado.ACTIVO;
     @Column(name = "factura")
     private String factura;
-
+    @Column(name = "asistio" )
+    private boolean asistio;
 
     @ManyToOne
     @JoinColumn(name="id_paciente", referencedColumnName = "id_persona")
