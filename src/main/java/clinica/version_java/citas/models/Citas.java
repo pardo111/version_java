@@ -2,6 +2,8 @@ package clinica.version_java.citas.models;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import clinica.version_java.personas.models.Persona;
 import clinica.version_java.personas.models.enums.Estado;
@@ -14,12 +16,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "citas")
 @Data
+@NoArgsConstructor
 public class Citas {
     
     @Id
@@ -49,4 +54,7 @@ public class Citas {
     @ManyToOne
     @JoinColumn(name="id_medico", referencedColumnName = "id_persona")
     private Persona medico;
+
+    @OneToMany(mappedBy = "cita")
+    private List<EstadoMental> estadosMentales = new ArrayList<>();
 }

@@ -1,6 +1,6 @@
 package clinica.version_java.usuarios_autenticacion.services;
 
-import org.springdoc.core.converters.models.Pageable;
+import org.springframework.data.domain.Pageable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -65,7 +65,8 @@ public class UsuarioServiceImp implements UsuarioService{
     }
 
 
-    public Page<DTOUsuarios> obtenerUsuarios(Pageable pageable) {
+    @Override
+    public Page<DTOUsuarios> obtenerUsuarios(Pageable pageable){
         Page<Usuarios> usuariosPage = usuariosRepository.findByEstado(Estado.ACTIVO, pageable);
         Page<DTOUsuarios> dtoPage = usuariosPage.map(DTOUsuarios::new);
         return dtoPage;

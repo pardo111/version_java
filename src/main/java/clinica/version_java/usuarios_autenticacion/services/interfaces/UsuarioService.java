@@ -1,6 +1,6 @@
 package clinica.version_java.usuarios_autenticacion.services.interfaces;
 
-import org.springdoc.core.converters.models.Pageable;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 
 import clinica.version_java.usuarios_autenticacion.DTO.DTOUsuarios;
