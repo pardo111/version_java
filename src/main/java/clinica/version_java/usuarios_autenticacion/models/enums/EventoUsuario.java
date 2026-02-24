@@ -1,7 +1,0 @@
-package clinica.version_java.usuarios_autenticacion.models.enums;
-
-public enum EventoUsuario {
-    LOGIN_EXITOSO,
-    LOGIN_FALLIDO,
-    LOGOUT
-}
